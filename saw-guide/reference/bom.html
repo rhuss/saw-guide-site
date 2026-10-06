@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>BOM and profiles :: Secure Agent Workspace Guide</title>
+    <link rel="prev" href="charts.html">
+    <link rel="next" href="make-targets.html">
+    <meta name="description" content="Bill of materials and configuration profiles.">
+    <meta name="generator" content="Antora 3.1.15">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@400;500;700&family=Red+Hat+Mono:wght@400;700&family=Red+Hat+Text:wght@400;700&display=swap">
+    <link rel="stylesheet" href="../../_/css/site.css">
+<link rel="stylesheet" href="../../_/css/vendor/tabs.css">
+<link rel="icon" href="../../_/img/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="../../_/img/favicon.ico" type="image/x-icon">
+  </head>
+  <body class="article">
+<a class="skip-link" href="#content">Skip to content</a>
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <span class="navbar-item navbar-logo">
+        <img src="../../_/img/logo-demo-platform.svg" alt="Red Hat Demo Platform" class="navbar-logo-img">
+      </span>
+      <a class="navbar-item site-title" target="_blank" href="../..">Secure Agent Workspace Guide</a>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="saw-guide" data-version="">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="../index.html" class=" query-params-link">Secure Agent Workspace</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Concepts</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../index.html">What SAW is, and why</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../architecture.html">Architecture</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../governance.html">How governance works</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../benefits-challenges.html">Benefits and challenges</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Admin guide</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../admin/prerequisites.html">Prerequisites and sizing</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../admin/install-gitops.html">Install with GitOps</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../admin/install-manual.html">Install manually</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../admin/onboard-users.html">Onboard users</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../admin/day2.html">Day 2 operations</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../admin/test-troubleshoot.html">Test and troubleshoot</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">User guide</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../user/access.html">What your admin hands you</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../user/connect.html">Log in and connect</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../user/sandboxes.html">Work with sandboxes</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../user/what-you-can-change.html">What you can and cannot change</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Reference</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="charts.html">Chart values</a>
+  </li>
+  <li class="nav-item is-current-page" data-depth="1">
+    <a class="nav-link" href="bom.html">BOM and profiles</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="make-targets.html">Make targets</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="ports-namespaces.html">Ports, Routes, and namespaces</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Experimental</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../experimental.html">Experimental and upcoming features</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+  </div>
+  <ul class="components">
+    <li class="component is-current">
+      <span class="title">Secure Agent Workspace</span>
+      <ul class="versions">
+        <li class="version is-current">
+          <a href="../index.html">default</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>    </div>
+  </aside>
+</div>
+<main class="article" id="content">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../index.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../index.html">Secure Agent Workspace</a></li>
+    <li>Reference</li>
+    <li><a href="bom.html">BOM and profiles</a></li>
+  </ul>
+</nav>
+</div>
+  <div class="content">
+<article class="doc">
+<h1 class="page">BOM and profiles</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>The InstallerBOM resource defines which software versions the in-VM installer deploys.
+BOM profiles define the workspaces, providers, and sandboxes the installer creates after the binaries are in place.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="installerbom-schema"><a class="anchor" href="#installerbom-schema"></a>InstallerBOM schema</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The installer validates every BOM document against these rules (see <a href="https://github.com/validatedpatterns-sandbox/secure-agent-workspace/blob/4768f02d4415449de74403df62bad0c03630448e/charts/openshell-saw/files/installer/apply_bom.py"><code>apply_bom.py</code></a>):</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 40%;">
+<col style="width: 60%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Field</th>
+<th class="tableblock halign-left valign-top">Constraint</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>apiVersion</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Must be <code>saw.redhat.com/v1alpha1</code>.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>kind</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Must be <code>InstallerBOM</code>.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>metadata.name</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">DNS label, maximum 63 characters.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>spec.installerVersion</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Must match the installer&#8217;s built-in <code>INSTALLER_VERSION</code> constant. A mismatch is a hard error.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>spec.openshell</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Required. Exactly four components: <code>cli</code>, <code>gateway</code>, <code>supervisor</code>, and <code>sandbox</code>. A missing or unknown component is an error. All four must carry the same <code>version</code>; the comparison ignores a leading <code>v</code> and treats <code>+</code> and <code>-</code> alike.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>spec.openshell.cli</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Required. <code>version</code> (semantic version string) and <code>image</code> (container reference pinned by digest). Optional: <code>path</code> (absolute path to the binary inside the image, default <code>/usr/local/bin/openshell</code>), <code>signature</code> (keyRef or identity/issuer for verification). The installer copies the binary out of the image.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>spec.openshell.gateway</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Required. Same structure as <code>cli</code>. Default <code>path</code>: <code>/usr/local/bin/openshell-gateway</code>.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>spec.openshell.supervisor</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Required. Same structure as <code>cli</code>. Default <code>path</code>: <code>/openshell-supervisor</code>. The chart also writes this image into the gateway configuration as the Podman driver&#8217;s <code>supervisor_image</code>.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>spec.openshell.sandbox</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Required. The sandbox runtime image, with <code>version</code>, a digest-pinned <code>image</code>, and an optional <code>signature</code>. The installer pulls this image but extracts no binary from it. The chart writes it into the gateway configuration as <code>sandbox_runtime_image</code>, and the gateway&#8217;s Podman driver mounts the static <code>openshell-sandbox</code> binary from it read-only into every sandbox container.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>spec.nemoclaw.cliImage</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Optional. A tag is accepted with a warning; a digest pin is recommended.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>All four OpenShell components must have images pinned by digest.
+Tags are refused because a tag can move and the BOM would stop describing what is installed.
+The installer checks image signatures for all four components when signing is enabled.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="profile-layout"><a class="anchor" href="#profile-layout"></a>Profile layout</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Profiles live under <code>charts/saw-bom/profiles/&lt;profile&gt;/&lt;workspace&gt;/</code>.
+Each workspace directory contains up to three YAML files:</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1"><code>workspace.yaml</code> (kind: <code>Workspace</code>)</dt>
+<dd>
+<p>Metadata for the workspace, including its <code>name</code> and <code>description</code>.
+A workspace named <code>default</code> maps to the gateway&#8217;s built-in workspace.</p>
+</dd>
+<dt class="hdlist1"><code>providers.yaml</code> (kind: <code>Providers</code>)</dt>
+<dd>
+<p>List of provider entries under <code>spec.providers</code>.
+Each provider needs <code>name</code>, <code>type</code>, and <code>credentialSecret</code>.
+Optional fields: <code>credentialSecretKey</code> (default <code>api_key</code>), <code>enabled</code> (default <code>true</code>), <code>model</code>, <code>nemoclawProvider</code>, <code>baseUrlSecretKey</code>, <code>modelSecretKey</code>, <code>inferenceTimeout</code>.
+Only the <code>openai</code>, <code>anthropic</code>, and <code>nvidia</code> types accept <code>baseUrlSecretKey</code>.
+The installer still accepts <code>inferenceTimeout</code> but does not use it, because OpenShell has no gateway inference router to apply a timeout to.</p>
+</dd>
+<dt class="hdlist1"><code>sandbox.yaml</code> (kind: <code>Sandboxes</code>)</dt>
+<dd>
+<p>List of sandbox entries under <code>spec.sandboxes</code>.
+Each sandbox needs a <code>name</code> (DNS label, at most 19 characters).
+Optional fields: <code>type</code> (default <code>generic</code>), <code>enabled</code> (default <code>true</code>), <code>image</code>, <code>agent</code>, <code>providers</code>, <code>model</code>.
+An <code>openclaw</code> or <code>nemoclaw</code> sandbox needs at least one enabled provider in its workspace.</p>
+</dd>
+</dl>
+</div>
+<div class="paragraph">
+<p>The <code>saw-bom</code> chart flattens these files into a ConfigMap (<code>saw-bom-profiles</code>) with keys like <code>profiles__data-science__default__workspace.yaml</code>.
+The in-VM installer parses them back into the profile/workspace/file hierarchy.</p>
+</div>
+<div class="sect2">
+<h3 id="supported-provider-types"><a class="anchor" href="#supported-provider-types"></a>Supported provider types</h3>
+<div class="paragraph">
+<p>The installer&#8217;s <code>PROVIDER_CRED_MAP</code> defines which <code>type</code> values the installer accepts in a <code>providers.yaml</code> file and the environment variable that carries each credential:</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 66.6667%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Type</th>
+<th class="tableblock halign-left valign-top">Credential environment variable</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>gemini</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>GEMINI_API_KEY</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>google-vertex-ai</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>GOOGLE_API_KEY</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>claude-code</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>ANTHROPIC_API_KEY</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>anthropic</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>ANTHROPIC_API_KEY</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>codex</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>OPENAI_API_KEY</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>openai</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>OPENAI_API_KEY</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>nvidia</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>NVIDIA_API_KEY</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>build</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>NVIDIA_INFERENCE_API_KEY</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>brave</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>BRAVE_API_KEY</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>tavily</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>TAVILY_API_KEY</code></p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>An accepted type does not mean the gateway can create the provider.
+OpenShell v0.1.2 has no built-in provider profile catalog and rejects a <code>builtin</code> profile source, so a provider type works only if a profile with that <code>id</code> exists.
+With governance on, the profiles come from the governance catalog (see <a href="#governance-provider-profiles">Governance provider profiles</a>), which covers <code>brave</code>, <code>gemini</code>, <code>nvidia</code>, and <code>openai</code> from this table.
+With governance off, the installer imports the profile bundled with the <code>openshell-saw</code> chart for <code>brave</code>, <code>nvidia</code>, or <code>openai</code> when the gateway lacks one.
+In either mode, the installer skips any other provider with a warning, because the CLI finds no profile for its type and never sends the <code>CreateProvider</code> request.
+An <code>openclaw</code> or <code>nemoclaw</code> sandbox whose listed providers were all skipped fails the installer&#8217;s verification, and the apply step ends with status <code>Failed</code>.</p>
+</div>
+<div class="paragraph">
+<p>For an OpenClaw sandbox, the installer configures the agent with its provider&#8217;s own endpoint: the base URL the provider reads from its Secret, or else <code>https://integrate.api.nvidia.com/v1</code> for the <code>nvidia</code> and <code>build</code> types and <code>https://api.openai.com/v1</code> for <code>openai</code>.
+For any other type without a base URL, the installer skips OpenClaw onboarding and logs a warning.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="sandbox-types"><a class="anchor" href="#sandbox-types"></a>Sandbox types</h3>
+<div class="paragraph">
+<p>The <code>SANDBOX_TYPES</code> set defines the valid sandbox <code>type</code> values: <code>generic</code>, <code>openclaw</code>, and <code>nemoclaw</code>.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="shipped-profiles"><a class="anchor" href="#shipped-profiles"></a>Shipped profiles</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Two profiles ship with the baseline:</p>
+</div>
+<div class="sect2">
+<h3 id="data-science-default"><a class="anchor" href="#data-science-default"></a>data-science (default)</h3>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">Workspace <code>default</code></dt>
+<dd>
+<p>NVIDIA (type <code>nvidia</code>) and Brave (type <code>brave</code>) providers.
+One <code>openclaw</code> sandbox (<code>notebook</code>), one disabled <code>nemoclaw</code> sandbox (<code>cuda-sandbox</code>), one disabled <code>generic</code> sandbox (<code>toolbox</code>).
+All three sandboxes list only the <code>nvidia</code> provider, so no sandbox attaches the <code>brave</code> provider.
+The installer still requires the <code>brave</code> credential from the Secret <code>web-search</code>, and the <code>apply</code> step fails without it.</p>
+</dd>
+<dt class="hdlist1">Workspace <code>cuda-dev</code></dt>
+<dd>
+<p>NVIDIA (type <code>nvidia</code>) provider. One <code>nemoclaw</code> sandbox (<code>cuda-sandbox</code>), one disabled <code>generic</code> sandbox (<code>toolbox</code>).</p>
+</dd>
+</dl>
+</div>
+</div>
+<div class="sect2">
+<h3 id="custom-inference"><a class="anchor" href="#custom-inference"></a>custom-inference</h3>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">Workspace <code>default</code></dt>
+<dd>
+<p>An <code>openai</code>-type provider (<code>custom</code>) that reads the base URL and model from the <code>inference</code> Secret, plus a Brave (type <code>brave</code>) provider.
+One <code>openclaw</code> sandbox (<code>notebook</code>), which lists only the <code>custom</code> provider.
+As in <code>data-science</code>, no sandbox attaches the <code>brave</code> provider, but the installer requires its credential.</p>
+</dd>
+</dl>
+</div>
+<div class="paragraph">
+<p>The agent calls the base URL directly, so the <code>openai</code> governance profile must name that server&#8217;s host and port.
+The shipped <code>openai</code> profile allows only <code>api.openai.com</code> (see <a href="#governance-provider-profiles">Governance provider profiles</a>).
+SAW&#8217;s custom inference documentation lists this setup as not yet verified end to end with the OpenShell release the BOM installs.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="governance-provider-profiles"><a class="anchor" href="#governance-provider-profiles"></a>Governance provider profiles</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Seven provider profiles ship in <code>charts/governance-policy/profiles/</code>.
+The governance interceptor loads them at startup and reloads on ConfigMap changes.
+A BOM provider&#8217;s <code>type</code> names the profile <code>id</code> it uses, and the profiles carry no separate <code>provider_type</code> field.
+If the <code>type</code> matches no loaded profile <code>id</code>, the interceptor denies the <code>CreateProvider</code> request.</p>
+</div>
+<div class="paragraph">
+<p>Each profile lists the endpoints its provider may reach and, under <code>binaries</code>, the executables in the sandbox that may use them.
+The agent holds only a placeholder for the credential.
+The sandbox proxy replaces it with the real credential only on requests to a listed endpoint from a listed binary.
+A missing or empty <code>binaries</code> list allows nothing.
+See <a href="../governance.html#provider-profiles-follow-the-configmap" class="xref page">Provider profiles follow the ConfigMap</a> for how the gateway uses the profiles.</p>
+</div>
+<div class="paragraph">
+<p>In the table, <code>curl</code>, <code>gh</code>, and <code>git</code> stand for the binary in both <code>/usr/bin</code> and <code>/usr/local/bin</code>.
+<code>node</code> stands for <code>/usr/bin/node</code>, <code>/usr/bin/node-*</code>, and <code>/usr/local/bin/node</code>.
+In the Hummingbird image that OpenClaw runs in, <code>/usr/bin/node</code> links to <code>/usr/bin/node-&lt;major&gt;</code>, and the rule matches the real path.
+The NemoClaw image uses <code>/usr/local/bin/node</code>.
+All endpoints use port 443.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 17%;">
+<col style="width: 22%;">
+<col style="width: 25%;">
+<col style="width: 13%;">
+<col style="width: 23%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Profile ID</th>
+<th class="tableblock halign-left valign-top">Category</th>
+<th class="tableblock halign-left valign-top">Allowed endpoints</th>
+<th class="tableblock halign-left valign-top">Binaries</th>
+<th class="tableblock halign-left valign-top">Credential variables</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>brave</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>other</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>api.search.brave.com</code> (read-only)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>curl</code>, <code>node</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>BRAVE_API_KEY</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>gemini</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>other</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>generativelanguage.googleapis.com</code>, <code>*-aiplatform.googleapis.com</code>, <code>cloudcode-pa.googleapis.com</code> (read-write); <code>accounts.google.com</code>, <code>oauth2.googleapis.com</code>, <code>www.googleapis.com</code>, <code>iamcredentials.googleapis.com</code> (read-only)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>/usr/bin/gemini</code>, <code>/usr/lib/node_modules/@google/gemini-cli/dist/index.js</code>, <code>node</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>GEMINI_API_KEY</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>github</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>source_control</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>api-1.github.com</code>, <code>api.github.com</code> (including GraphQL at <code>/graphql</code>), <code>github.com</code> (all read-only)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>gh</code>, <code>git</code>, <code>curl</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>GITHUB_TOKEN</code>, <code>GH_TOKEN</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>nvidia</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>inference</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>integrate.api.nvidia.com</code> (read-write)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>curl</code>, <code>node</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>NVIDIA_API_KEY</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>openai</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>inference</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>api.openai.com</code> (read-write)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>curl</code>, <code>node</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>OPENAI_API_KEY</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>slack</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>messaging</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>slack.com</code>, <code>GET</code> only on <code>/api/team.info</code>, <code>/api/users.info</code>, <code>/api/conversations.info</code>, and <code>/api/conversations.history</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>curl</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>SLACK_BOT_TOKEN</code>, <code>SLACK_TOKEN</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>web-search</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>other</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>api.tavily.com</code>, <code>api.search.brave.com</code>, <code>registry.npmjs.org</code> (all read-only)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>curl</code>, <code>node</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">(none)</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<nav class="pagination">
+  <span class="prev"><a href="charts.html" class="query-params-link">Chart values</a></span>
+  <span class="next"><a href="make-targets.html" class="query-params-link">Make targets</a></span>
+</nav>
+</article>
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>  </div>
+</main>
+</div>
+<footer class="footer">
+  <a href="https://demo.redhat.com" target="_blank" class="poweredBy"><p>Powered by</p><div class="labInfo_poweredBy" style="display: block; width: 260px;"><svg class="labInfo_poweredByLogo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1508.5 178.739"><g fill="#111"><path d="M316.6 63.2v-56H342a21.279 21.279 0 0 1 7.8 1.3 18.111 18.111 0 0 1 5.9 3.5 15.577 15.577 0 0 1 5 11.8 15.051 15.051 0 0 1-3.1 9.5 16.836 16.836 0 0 1-8.4 5.8l12.5 24.1h-9.3l-11.6-23H325v23Zm24.7-48.6H325v18.7h16.3q5.25 0 8.1-2.7a8.7 8.7 0 0 0 2.8-6.6 8.7 8.7 0 0 0-2.8-6.6c-1.8-1.9-4.5-2.8-8.1-2.8ZM364.1 42.8a20.674 20.674 0 0 1 1.6-8.2 20.288 20.288 0 0 1 4.3-6.7 19.92 19.92 0 0 1 6.5-4.5 19.718 19.718 0 0 1 8-1.6 18.463 18.463 0 0 1 7.8 1.6 18.677 18.677 0 0 1 6.2 4.5 20.927 20.927 0 0 1 4.1 6.8 23.2 23.2 0 0 1 1.5 8.4v2.3H372a13.822 13.822 0 0 0 4.6 8.4 13.6 13.6 0 0 0 9.1 3.3 15.553 15.553 0 0 0 5.7-1 12.858 12.858 0 0 0 4.6-2.6l5.1 5a25.983 25.983 0 0 1-7.4 4.1 24.69 24.69 0 0 1-8.4 1.3 21.306 21.306 0 0 1-8.4-1.6 22.763 22.763 0 0 1-6.8-4.4 20.788 20.788 0 0 1-4.5-6.7 23.2 23.2 0 0 1-1.5-8.4Zm20.2-14.2a11.527 11.527 0 0 0-8 3 13.046 13.046 0 0 0-4.2 7.8h24.2a13.091 13.091 0 0 0-4.2-7.8 11.106 11.106 0 0 0-7.8-3ZM443.1 63.2v-3.8a19.448 19.448 0 0 1-5.8 3.3 18.924 18.924 0 0 1-6.7 1.2 19.824 19.824 0 0 1-14.6-6.1 22.268 22.268 0 0 1-4.4-6.7 21.812 21.812 0 0 1 0-16.4A20.534 20.534 0 0 1 416 28a19.335 19.335 0 0 1 6.6-4.5 20.334 20.334 0 0 1 8.2-1.6 20.7 20.7 0 0 1 6.6 1 19.415 19.415 0 0 1 5.7 3V7.2l8-1.8v57.8Zm-25.2-20.4a13.718 13.718 0 0 0 4 10.1 13.45 13.45 0 0 0 9.8 4.1 14.956 14.956 0 0 0 6.4-1.3 15.954 15.954 0 0 0 4.9-3.6V33.6a14.988 14.988 0 0 0-4.9-3.5 15.271 15.271 0 0 0-6.4-1.3 13.423 13.423 0 0 0-9.9 4 13.806 13.806 0 0 0-3.9 10ZM478.1 63.2v-56h8.4v24h29.8v-24h8.4v56h-8.4V38.8h-29.8v24.4ZM547.2 64a16.483 16.483 0 0 1-10.8-3.5 11.037 11.037 0 0 1-4.2-8.9 10.375 10.375 0 0 1 4.7-9.2 20.76 20.76 0 0 1 11.8-3.2 27.841 27.841 0 0 1 5.8.6 27.374 27.374 0 0 1 5.3 1.6v-4.3a8.143 8.143 0 0 0-2.6-6.5 11.452 11.452 0 0 0-7.4-2.2 20.788 20.788 0 0 0-6 .9 34.616 34.616 0 0 0-6.6 2.6l-3-6a54.169 54.169 0 0 1 8.4-3.1 33.18 33.18 0 0 1 8.3-1.1c5.2 0 9.3 1.3 12.2 3.8s4.4 6.1 4.4 10.8v27h-7.8v-3.5a19.441 19.441 0 0 1-5.8 3.2 23.54 23.54 0 0 1-6.7 1Zm-7.3-12.6a5.646 5.646 0 0 0 2.6 4.8 11.193 11.193 0 0 0 6.6 1.8 16.256 16.256 0 0 0 5.9-1 14.449 14.449 0 0 0 4.9-2.9V47a19.778 19.778 0 0 0-4.8-1.8 24.933 24.933 0 0 0-5.7-.6 11.859 11.859 0 0 0-6.8 1.8 5.728 5.728 0 0 0-2.7 5ZM580.6 53.2v-24H572v-6.7h8.6V12.1l7.9-1.9v12.3h12v6.7h-12v22.1a5.94 5.94 0 0 0 1.4 4.4c.9.9 2.5 1.3 4.6 1.3a23.637 23.637 0 0 0 3-.2 10.857 10.857 0 0 0 2.8-.8v6.7a19.28 19.28 0 0 1-3.8.9 27.484 27.484 0 0 1-3.8.3c-3.9 0-7-.9-9-2.8-2-1.7-3.1-4.4-3.1-7.9Z"></path></g><path d="M127 90.2c12.5 0 30.6-2.6 30.6-17.5a12.678 12.678 0 0 0-.3-3.4L149.8 37c-1.7-7.1-3.2-10.3-15.7-16.6-9.7-5-30.8-13.1-37.1-13.1-5.8 0-7.5 7.5-14.4 7.5-6.7 0-11.6-5.6-17.9-5.6-6 0-9.9 4.1-12.9 12.5 0 0-8.4 23.7-9.5 27.2a4.216 4.216 0 0 0-.3 1.9c0 9.2 36.3 39.4 85 39.4Zm32.5-11.4c1.7 8.2 1.7 9.1 1.7 10.1 0 14-15.7 21.8-36.4 21.8-46.8 0-87.7-27.4-87.7-45.5a17.535 17.535 0 0 1 1.5-7.3C21.8 58.8 0 61.8 0 81c0 31.5 74.6 70.3 133.7 70.3 45.3 0 56.7-20.5 56.7-36.6-.1-12.8-11-27.3-30.9-35.9Z" fill="#e00"></path><path d="M159.5 78.8c1.7 8.2 1.7 9.1 1.7 10.1 0 14-15.7 21.8-36.4 21.8-46.8 0-87.7-27.4-87.7-45.5a17.535 17.535 0 0 1 1.5-7.3l3.7-9.1a4.877 4.877 0 0 0-.3 2c0 9.2 36.3 39.4 85 39.4 12.5 0 30.6-2.6 30.6-17.5a12.678 12.678 0 0 0-.3-3.4Z"></path><path d="M253.5 158.7a2.22 2.22 0 0 1-2.2-2.2V2.2a2.2 2.2 0 0 1 4.4 0v154.2a2.242 2.242 0 0 1-2.2 2.3Z" fill="#111"></path><text data-name="Demo Platform" transform="translate(1186 149)" fill="#111" font-size="82" font-family="'RedHatDisplay', 'Overpass', overpass, helvetica, arial, sans-serif" font-weight="700"><tspan x="-877.892" y="0">Demo Platform</tspan></text></svg></div></div>
+</footer>
+<script defer src="../../_/js/vendor/clipboard.js"></script>
+<script defer src="../../_/js/site.js"></script>
+<script defer src="../../_/js/vendor/highlight.js"></script>
+<script async src="../../_/js/vendor/tabs.js"></script>
+  </body>
+</html>

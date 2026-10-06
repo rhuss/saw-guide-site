@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Experimental and upcoming features :: Secure Agent Workspace Guide</title>
+    <link rel="prev" href="reference/ports-namespaces.html">
+    <meta name="description" content="Features in review for SAW, with their status at the baseline date.">
+    <meta name="generator" content="Antora 3.1.15">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@400;500;700&family=Red+Hat+Mono:wght@400;700&family=Red+Hat+Text:wght@400;700&display=swap">
+    <link rel="stylesheet" href="../_/css/site.css">
+<link rel="stylesheet" href="../_/css/vendor/tabs.css">
+<link rel="icon" href="../_/img/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="../_/img/favicon.ico" type="image/x-icon">
+  </head>
+  <body class="article">
+<a class="skip-link" href="#content">Skip to content</a>
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <span class="navbar-item navbar-logo">
+        <img src="../_/img/logo-demo-platform.svg" alt="Red Hat Demo Platform" class="navbar-logo-img">
+      </span>
+      <a class="navbar-item site-title" target="_blank" href="..">Secure Agent Workspace Guide</a>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="saw-guide" data-version="">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="index.html" class=" query-params-link">Secure Agent Workspace</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Concepts</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="index.html">What SAW is, and why</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="architecture.html">Architecture</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="governance.html">How governance works</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="benefits-challenges.html">Benefits and challenges</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Admin guide</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="admin/prerequisites.html">Prerequisites and sizing</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="admin/install-gitops.html">Install with GitOps</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="admin/install-manual.html">Install manually</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="admin/onboard-users.html">Onboard users</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="admin/day2.html">Day 2 operations</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="admin/test-troubleshoot.html">Test and troubleshoot</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">User guide</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="user/access.html">What your admin hands you</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="user/connect.html">Log in and connect</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="user/sandboxes.html">Work with sandboxes</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="user/what-you-can-change.html">What you can and cannot change</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Reference</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="reference/charts.html">Chart values</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="reference/bom.html">BOM and profiles</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="reference/make-targets.html">Make targets</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="reference/ports-namespaces.html">Ports, Routes, and namespaces</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Experimental</span>
+<ul class="nav-list">
+  <li class="nav-item is-current-page" data-depth="1">
+    <a class="nav-link" href="experimental.html">Experimental and upcoming features</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+  </div>
+  <ul class="components">
+    <li class="component is-current">
+      <span class="title">Secure Agent Workspace</span>
+      <ul class="versions">
+        <li class="version is-current">
+          <a href="index.html">default</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>    </div>
+  </aside>
+</div>
+<main class="article" id="content">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="index.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="index.html">Secure Agent Workspace</a></li>
+    <li>Experimental</li>
+    <li><a href="experimental.html">Experimental and upcoming features</a></li>
+  </ul>
+</nav>
+</div>
+  <div class="content">
+<article class="doc">
+<h1 class="page">Experimental and upcoming features</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>The pull requests described on this page were in review against the SAW repository at the time of the baseline (2026-10-02).
+None of them are part of the baseline commit that the rest of this guide documents.
+They may change significantly, be reworked, or be dropped before they merge.</p>
+</div>
+<div class="paragraph">
+<p>Nothing on this page is an instruction.
+The sections below describe intent only, so you can understand what each change would mean for your deployment if it lands.
+Where a feature would affect admin or user workflows, those effects are noted, but no steps are provided because the implementation is not final.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="rhdh-portal"><a class="anchor" href="#rhdh-portal"></a>Self-service portal with Red Hat Developer Hub</h2>
+<div class="sectionbody">
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="title">Experimental: in review</div>
+<div class="paragraph">
+<p>Self-service portal with Red Hat Developer Hub is not part of the baseline.
+It is proposed in <a href="https://github.com/validatedpatterns-sandbox/secure-agent-workspace/pull/57" target="_blank" rel="noopener">PR&#160;#57</a> (status as of 2026-10-02) and may change or be dropped before it merges.
+This section describes intent only.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>This PR lets users create their own workspace from Red Hat Developer Hub (RHDH).
+It replaces the earlier PR #33, whose pipelines installed each sandbox with Helm.
+PR #57 builds workspaces the same way SAW already does for users declared in Git: through the <code>saw-users</code> chart.</p>
+</div>
+<div class="paragraph">
+<p>A user signs in to RHDH with their Keycloak account, picks a SAW-BOM profile, and enters only the API keys that profile needs.
+The result is the namespace <code>saw-&lt;user&gt;</code> with a VM and the profile&#8217;s sandboxes, the same set an admin gets from an entry in <code>overrides/saw-users.yaml</code>.
+Nothing is written to Git.
+The keys go to Vault under the user&#8217;s own <code>saw-&lt;user&gt;</code> path in the hub prefix, and the workspace becomes an entry in an in-cluster registry, a ConfigMap in the new <code>saw-portal</code> namespace.</p>
+</div>
+<div class="paragraph">
+<p>The new <code>openshell-rhdh</code> chart deploys RHDH with two templates, one to create a workspace and one to delete it.
+Each request starts an OpenShift Pipelines (Tekton) pipeline in <code>saw-portal</code>, which checks the form and writes the keys and the registry entry.
+The pipeline then waits for each stage of the build, so the user can follow the progress in RHDH.
+Argo CD still does the building.
+An ApplicationSet asks a small generator service for the registry entries and creates one Application per user, which renders the <code>saw-users</code> chart for that one user.
+The ApplicationSet only creates and updates Applications, so a registry problem never deletes a VM; deleting is the delete pipeline&#8217;s job.</p>
+</div>
+<div class="paragraph">
+<p>The pipeline doesn&#8217;t trust anything the form says about who the user is.
+RHDH puts the user&#8217;s Backstage token, a signed JWT, into each request.
+The pipeline checks the token&#8217;s signatures and expiry against the keys RHDH publishes and takes the user name from the token&#8217;s subject.
+A user can therefore create or delete only their own workspace.
+The pipeline also refuses a user who is already declared in Git, and a workspace whose Argo CD applications would collide with someone else&#8217;s.</p>
+</div>
+<div class="paragraph">
+<p>The permissions behind the portal are narrow.
+RHDH&#8217;s service account may only create request Secrets and start the two portal pipelines in <code>saw-portal</code>, and admission policies pin exactly what it may create there.
+The pipeline&#8217;s service account holds Roles only in <code>saw-portal</code> and the Argo CD namespace, plus read access to namespaces and VMs.
+An admission policy lets it delete only the Applications the portal created.
+It never writes to a user&#8217;s namespace, because Argo CD builds everything in it.
+Its Vault role can write to every portal user&#8217;s path, so only the token check keeps a request away from other users' keys.
+In RHDH itself, role-based access shows each user only their own workspace and only the actions that apply to them.</p>
+</div>
+<div class="paragraph">
+<p>The PR reaches beyond the portal in two places.
+Any sandbox can set <code>ui: {route: true}</code> in its SAW-BOM profile to get its own Route to the agent&#8217;s web UI, for portal users and Git-declared users alike.
+An oauth2-proxy in the VM signs the user in with Keycloak and admits only the workspace owner and any users the admin allows.
+OpenClaw trusts that sign-in, so the browser needs no gateway token.
+Keycloak also gets stricter: test users get generated passwords instead of defaults, self-registration is off, and the realm enforces a password policy and locks accounts after repeated failed sign-ins.</p>
+</div>
+<div class="paragraph">
+<p>For admins, onboarding changes from editing <code>overrides/saw-users.yaml</code> for every user to creating Keycloak accounts and letting users request their own workspaces.
+Because self-registration is off, a user can reach the portal only after an admin creates the account.
+Admins named in the chart&#8217;s <code>portal.admins</code> value also get templates to create or delete a workspace for another user.
+The pattern would install the portal by default, together with the OpenShift Pipelines operator and an imperative job that creates the pipeline&#8217;s Vault role.
+An existing deployment would need two new generated entries in its secrets file.
+Each VM would also need a restart before its sandbox UI Routes work, because the Routes add VM interface ports.</p>
+</div>
+<div class="paragraph">
+<p>For users, the portal replaces waiting for an admin hand-over.
+A user fills in a form, follows the progress, and then finds the workspace in the RHDH catalog with links to the OpenShell web UI and to each sandbox UI.
+Creating and deleting a workspace needs neither cluster access nor the OpenShell CLI.</p>
+</div>
+<div class="paragraph">
+<p>Watch for: at the recorded head, the PR hadn&#8217;t yet tested the full flow from the RHDH form to a running workspace, or the delete flow, on a cluster.
+It had checked the Keycloak changes, the sandbox UI sign-in, and the RHDH resource definition live.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="gpu-passthrough"><a class="anchor" href="#gpu-passthrough"></a>GPU passthrough</h2>
+<div class="sectionbody">
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="title">Experimental: in review</div>
+<div class="paragraph">
+<p>GPU passthrough is not part of the baseline.
+It is proposed in <a href="https://github.com/validatedpatterns-sandbox/secure-agent-workspace/pull/37" target="_blank" rel="noopener">PR&#160;#37</a> (status as of 2026-10-02) and may change or be dropped before it merges.
+This section describes intent only.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>This PR wires GPU passthrough from the host through KubeVirt into the sandbox container.
+It adds a <code>vm.gpu</code> block to the <code>openshell-saw</code> chart values, rendered as a conditional <code>hostDevices</code> entry on the VirtualMachine spec, and a matching <code>pciHostDevices</code> entry in the <code>openshift-cnv</code> chart for the <code>HyperConverged</code> resource.</p>
+</div>
+<div class="paragraph">
+<p>The golden image build gains an optional NVIDIA Container Toolkit layer.
+When enabled, a first-boot systemd service compiles the kernel module against the running kernel and generates the CDI spec that Podman needs to pass the GPU into a sandbox container.
+BOM profiles can declare GPU requirements per sandbox (<code>gpu: {enabled: true, count: 1}</code>), and the installer passes those through to <code>openshell sandbox create</code>.</p>
+</div>
+<div class="paragraph">
+<p>Everything defaults to off.
+Existing deployments that do not set <code>vm.gpu.enabled</code> see no change in chart rendering or VM behavior.</p>
+</div>
+<div class="paragraph">
+<p>For admins, GPU passthrough requires bare-metal nodes (or a cloud platform that exposes IOMMU groups to the guest), the NVIDIA GPU Operator, and a <code>HyperConverged</code> configuration that maps the PCI device.
+The PR&#8217;s own testing found that nested virtualization on AWS <code>g5.2xlarge</code> instances does not expose the necessary hardware extensions, confirming that the feature targets physical hardware.</p>
+</div>
+<div class="paragraph">
+<p>For users, sandboxes with GPU access would work the same as regular sandboxes, with the addition of GPU device visibility inside the container.
+The <code>--gpu</code> flag on <code>openshell sandbox create</code> is a native OpenShell feature, so no SAW-specific CLI changes are needed.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="apf-switch"><a class="anchor" href="#apf-switch"></a>Choosing between the governance interceptor and APF</h2>
+<div class="sectionbody">
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="title">Experimental: in review</div>
+<div class="paragraph">
+<p>Choosing between the governance interceptor and APF is not part of the baseline.
+It is proposed in <a href="https://github.com/validatedpatterns-sandbox/secure-agent-workspace/pull/52" target="_blank" rel="noopener">PR&#160;#52</a> (status as of 2026-10-02) and may change or be dropped before it merges.
+This section describes intent only.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>This PR adds a toggle in <code>values-global.yaml</code> that lets the admin choose which service governs every SAW gateway: the existing OpenShell governance interceptor (the default) or NVIDIA Agent Policy Fabric (APF).</p>
+</div>
+<div class="paragraph">
+<p>With <code>global.governance.engine</code> set to <code>apf</code>, the governance interceptor Deployment is replaced by an Argo CD Application that pulls the APF chart from a private OCI registry.
+APF serves the same policy files from <code>charts/governance-policy</code>, but delivers them as a signed bundle with provenance stamping and an audit trail.
+The Service name and port stay the same (<code>governance-interceptor.openshell-agents.svc:18081</code>), so gateways keep their endpoint.
+Switching the engine still re-renders every SAW gateway configuration with APF&#8217;s bindings, so each user VM restarts once.</p>
+</div>
+<div class="paragraph">
+<p>A companion script (<code>apf-bundle.py</code>) translates the existing governance policy into APF documents and signs them with a locally generated seed.
+Only seed holders can change policy, which means a Git push to <code>charts/governance-policy</code> without a re-signed bundle would fail.</p>
+</div>
+<div class="paragraph">
+<p>For admins, the switch requires access to the private APF chart and images on GHCR, a GitHub token with <code>read:packages</code>, and Vault entries for the pull credentials and signing seed.
+The default rendering for the interceptor engine is byte-identical to the current baseline, so switching to APF is opt-in and reversible by changing a single value.</p>
+</div>
+<div class="paragraph">
+<p>For users, the governance engine behind their gateway is transparent.
+Sandbox creation, provider registration, and policy enforcement work the same regardless of which engine the admin chose.</p>
+</div>
+<div class="paragraph">
+<p>Watch for: the APF image package access was still pending at the recorded head, so not all bindings and catalog behavior had been validated end to end.
+The PR pins APF chart version 0.2.0, which its own documentation says was built against OpenShell 0.0.x and isn&#8217;t verified with the 0.1.x gateways of this baseline.
+A 0.1.x gateway negotiates the extension protocol with its interceptor at startup and doesn&#8217;t start when the interceptor doesn&#8217;t speak it (see <a href="governance.html#interceptor-versions" class="xref page">Interceptor and gateway versions</a>).
+APF therefore needs a release built for OpenShell 0.1.x.
+Per-user policy and Cedar rules are explicitly out of scope for this PR.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="harness-bundles"><a class="anchor" href="#harness-bundles"></a>Harness bundles</h2>
+<div class="sectionbody">
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="title">Experimental: in review</div>
+<div class="paragraph">
+<p>Harness bundles is not part of the baseline.
+It is proposed in <a href="https://github.com/validatedpatterns-sandbox/secure-agent-workspace/pull/53" target="_blank" rel="noopener">PR&#160;#53</a> (status as of 2026-10-02) and may change or be dropped before it merges.
+This section describes intent only.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>This PR delivers OpenClaw harness bundles (skills, MCP servers, and tool plugins) through the versioned SAW-BOM plane, mounted read-only at <code>/sandbox/harness</code> inside each sandbox.</p>
+</div>
+<div class="paragraph">
+<p>A harness bundle can come from one of two sources.
+An OCI image built from the <code>harness-bundles/</code> directory and published to GHCR is pulled by digest, and that digest is what the installer trusts.
+An inline bundle lives in <code>charts/saw-bom/harness/</code> and ships in the profiles ConfigMap, which limits its size and file names and keeps no file modes.
+Either way, the installer copies the bundle unchanged into a Podman volume that belongs to the sandbox, and the sandbox mounts that volume read-only.
+No shell handles bundle content, and nothing is copied into the sandbox through <code>sandbox exec</code>.</p>
+</div>
+<div class="paragraph">
+<p>The volume follows the mount rules of the OpenShell 0.1.x gateways in this baseline.
+With resource admission on, the gateway refuses image mounts and attaches a volume only when it carries labels for the sandbox&#8217;s workspace, which the installer sets.
+The gateway must also accept driver configuration from the caller, so the PR turns on <code>allowDriverConfig</code> in the <code>openshell-saw</code> chart by default, while bind mounts stay off.</p>
+</div>
+<div class="paragraph">
+<p>A bundle never holds a key.
+An MCP server or tool plugin that calls a keyed service names a governance profile in <code>harness.yaml</code>, and the sandbox needs a provider of that type.
+The sandbox then sees only the provider&#8217;s placeholder, and the sandbox proxy swaps in the real key on requests to the profile&#8217;s endpoints, as it does for model keys.
+An earlier revision of the PR exported a real key into the OpenClaw gateway process inside the sandbox, where the agent could read it.
+That path is gone, and the installer now refuses the <code>credentialSecret</code>, <code>credentialSecretKey</code>, and <code>credentialEnvVar</code> fields.</p>
+</div>
+<div class="paragraph">
+<p>Before it writes anything, the installer checks each bundle against the provider profiles the gateway serves for the sandbox&#8217;s workspace.
+The gateway must serve every governance profile the bundle names, the sandbox must have a provider for it, and a remote MCP server&#8217;s host must be one of that profile&#8217;s endpoints.</p>
+</div>
+<div class="paragraph">
+<p>For admins, harness bundles become part of the BOM profile.
+Adding or updating a bundle means editing the profile&#8217;s <code>sandbox.yaml</code> to reference a new digest or inline bundle name, then pushing through Git.
+An update refills the volume in place and keeps the running sandbox.
+Adding a bundle to a running sandbox, or removing one, recreates that sandbox, so anything the agent wrote outside <code>/sandbox/persist</code> and other data volumes is lost.</p>
+</div>
+<div class="paragraph">
+<p>For users, harness content appears at a fixed path inside the sandbox.
+The bundle&#8217;s skills, tools, and MCP servers are available to OpenClaw without any manual setup.</p>
+</div>
+<div class="paragraph">
+<p>The PR also hardens the installer&#8217;s <code>start_openclaw</code> function.
+It quotes the OpenClaw profile ID, the gateway token it writes into the OpenClaw configuration, and the dashboard origin before it passes them to a shell inside the sandbox.</p>
+</div>
+<div class="paragraph">
+<p>Watch for: the PR description still shows the earlier image mounts and <code>credentialSecret</code> path, while this section follows the code at the recorded head.
+At that head, the PR reports end-to-end checks on OpenShell 0.1.2-rhaiv.0 for both bundle sources.
+Reaching an in-cluster MCP Service from inside a sandbox was still open, because OpenShell&#8217;s default sandbox network policy denies it.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="agent-identity"><a class="anchor" href="#agent-identity"></a>Agent identity with SPIFFE and SPIRE</h2>
+<div class="sectionbody">
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="title">Experimental: in review</div>
+<div class="paragraph">
+<p>Agent identity with SPIFFE and SPIRE is not part of the baseline.
+It is proposed in <a href="https://github.com/validatedpatterns-sandbox/secure-agent-workspace/pull/55" target="_blank" rel="noopener">PR&#160;#55</a> (status as of 2026-10-02) and may change or be dropped before it merges.
+This section describes intent only.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>This PR replaces static API keys with short-lived, sandbox-bound tokens issued through SPIFFE/SPIRE workload identity.
+It is marked as a draft and has significant work remaining.</p>
+</div>
+<div class="paragraph">
+<p>Three new components are introduced.
+The <code>spire-identity</code> chart deploys the ZTWIM operator with SPIRE server, agents, CSI driver, and OIDC discovery.
+A Go registrar controller watches labelled VMs, creates bootstrap Secrets, and manages SPIRE registration entries.
+An optional <code>identity-demo</code> chart validates grants end to end.</p>
+</div>
+<div class="paragraph">
+<p>Inside the guest, a digest-pinned SPIRE agent is delivered as a BOM component.
+The installer configures systemd units, a Workload API socket, persistent SELinux contexts, and credential reuse across reboots.
+Each sandbox receives a distinct SPIFFE ID, and the gateway issues tokens through OpenShell&#8217;s <code>client_credentials</code> and <code>token_exchange</code> grants instead of static keys.</p>
+</div>
+<div class="paragraph">
+<p>The TCP client-credentials path is working on a live canary deployment.
+Token exchange, VSOCK transport, full pattern deployment through <code>./pattern.sh make install</code>, and several isolation and lifecycle tests remain open.
+A known blocker is that the pinned OpenShell supervisor&#8217;s audit events do not carry the injected identity claims, which blocks audit acceptance.</p>
+</div>
+<div class="paragraph">
+<p>For admins, enabling agent identity would mean deploying the SPIRE infrastructure alongside SAW and configuring <code>spiffe.*</code> values in the chart.
+For users, the token lifecycle would be invisible: the sandbox obtains and refreshes credentials automatically.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="planned-without-a-pull-request"><a class="anchor" href="#planned-without-a-pull-request"></a>Planned without a pull request</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Several features are planned but do not yet have a pull request in the SAW repository.</p>
+</div>
+<div class="paragraph">
+<p>A RHEL-based golden image would replace the current Fedora base for the gateway VM.
+The motivation includes compatibility with the NVIDIA GPU Operator, which requires RHEL or a RHEL-derivative kernel for its driver toolkit.</p>
+</div>
+<div class="paragraph">
+<p>Centralized log collection would aggregate logs from gateway VMs and sandbox containers into a cluster-level logging stack.
+The design direction is OCSF normalization, which would give security teams a structured format for analyzing agent activity across all workspaces.</p>
+</div>
+<div class="paragraph">
+<p>Vault integration for OpenShell provider credentials would let the gateway resolve secrets directly from Vault instead of relying on the current flow where the External Secrets Operator syncs them into Kubernetes Secrets.
+The <code>pattern-secrets</code> chart already deploys Vault and ESO for the platform layer, so this would extend that path into the guest.</p>
+</div>
+<div class="paragraph">
+<p>None of these items have committed timelines.
+They represent directions the project is working toward, based on upstream community discussions and published pull requests.</p>
+</div>
+</div>
+</div>
+<nav class="pagination">
+  <span class="prev"><a href="reference/ports-namespaces.html" class="query-params-link">Ports, Routes, and namespaces</a></span>
+</nav>
+</article>
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>  </div>
+</main>
+</div>
+<footer class="footer">
+  <a href="https://demo.redhat.com" target="_blank" class="poweredBy"><p>Powered by</p><div class="labInfo_poweredBy" style="display: block; width: 260px;"><svg class="labInfo_poweredByLogo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1508.5 178.739"><g fill="#111"><path d="M316.6 63.2v-56H342a21.279 21.279 0 0 1 7.8 1.3 18.111 18.111 0 0 1 5.9 3.5 15.577 15.577 0 0 1 5 11.8 15.051 15.051 0 0 1-3.1 9.5 16.836 16.836 0 0 1-8.4 5.8l12.5 24.1h-9.3l-11.6-23H325v23Zm24.7-48.6H325v18.7h16.3q5.25 0 8.1-2.7a8.7 8.7 0 0 0 2.8-6.6 8.7 8.7 0 0 0-2.8-6.6c-1.8-1.9-4.5-2.8-8.1-2.8ZM364.1 42.8a20.674 20.674 0 0 1 1.6-8.2 20.288 20.288 0 0 1 4.3-6.7 19.92 19.92 0 0 1 6.5-4.5 19.718 19.718 0 0 1 8-1.6 18.463 18.463 0 0 1 7.8 1.6 18.677 18.677 0 0 1 6.2 4.5 20.927 20.927 0 0 1 4.1 6.8 23.2 23.2 0 0 1 1.5 8.4v2.3H372a13.822 13.822 0 0 0 4.6 8.4 13.6 13.6 0 0 0 9.1 3.3 15.553 15.553 0 0 0 5.7-1 12.858 12.858 0 0 0 4.6-2.6l5.1 5a25.983 25.983 0 0 1-7.4 4.1 24.69 24.69 0 0 1-8.4 1.3 21.306 21.306 0 0 1-8.4-1.6 22.763 22.763 0 0 1-6.8-4.4 20.788 20.788 0 0 1-4.5-6.7 23.2 23.2 0 0 1-1.5-8.4Zm20.2-14.2a11.527 11.527 0 0 0-8 3 13.046 13.046 0 0 0-4.2 7.8h24.2a13.091 13.091 0 0 0-4.2-7.8 11.106 11.106 0 0 0-7.8-3ZM443.1 63.2v-3.8a19.448 19.448 0 0 1-5.8 3.3 18.924 18.924 0 0 1-6.7 1.2 19.824 19.824 0 0 1-14.6-6.1 22.268 22.268 0 0 1-4.4-6.7 21.812 21.812 0 0 1 0-16.4A20.534 20.534 0 0 1 416 28a19.335 19.335 0 0 1 6.6-4.5 20.334 20.334 0 0 1 8.2-1.6 20.7 20.7 0 0 1 6.6 1 19.415 19.415 0 0 1 5.7 3V7.2l8-1.8v57.8Zm-25.2-20.4a13.718 13.718 0 0 0 4 10.1 13.45 13.45 0 0 0 9.8 4.1 14.956 14.956 0 0 0 6.4-1.3 15.954 15.954 0 0 0 4.9-3.6V33.6a14.988 14.988 0 0 0-4.9-3.5 15.271 15.271 0 0 0-6.4-1.3 13.423 13.423 0 0 0-9.9 4 13.806 13.806 0 0 0-3.9 10ZM478.1 63.2v-56h8.4v24h29.8v-24h8.4v56h-8.4V38.8h-29.8v24.4ZM547.2 64a16.483 16.483 0 0 1-10.8-3.5 11.037 11.037 0 0 1-4.2-8.9 10.375 10.375 0 0 1 4.7-9.2 20.76 20.76 0 0 1 11.8-3.2 27.841 27.841 0 0 1 5.8.6 27.374 27.374 0 0 1 5.3 1.6v-4.3a8.143 8.143 0 0 0-2.6-6.5 11.452 11.452 0 0 0-7.4-2.2 20.788 20.788 0 0 0-6 .9 34.616 34.616 0 0 0-6.6 2.6l-3-6a54.169 54.169 0 0 1 8.4-3.1 33.18 33.18 0 0 1 8.3-1.1c5.2 0 9.3 1.3 12.2 3.8s4.4 6.1 4.4 10.8v27h-7.8v-3.5a19.441 19.441 0 0 1-5.8 3.2 23.54 23.54 0 0 1-6.7 1Zm-7.3-12.6a5.646 5.646 0 0 0 2.6 4.8 11.193 11.193 0 0 0 6.6 1.8 16.256 16.256 0 0 0 5.9-1 14.449 14.449 0 0 0 4.9-2.9V47a19.778 19.778 0 0 0-4.8-1.8 24.933 24.933 0 0 0-5.7-.6 11.859 11.859 0 0 0-6.8 1.8 5.728 5.728 0 0 0-2.7 5ZM580.6 53.2v-24H572v-6.7h8.6V12.1l7.9-1.9v12.3h12v6.7h-12v22.1a5.94 5.94 0 0 0 1.4 4.4c.9.9 2.5 1.3 4.6 1.3a23.637 23.637 0 0 0 3-.2 10.857 10.857 0 0 0 2.8-.8v6.7a19.28 19.28 0 0 1-3.8.9 27.484 27.484 0 0 1-3.8.3c-3.9 0-7-.9-9-2.8-2-1.7-3.1-4.4-3.1-7.9Z"></path></g><path d="M127 90.2c12.5 0 30.6-2.6 30.6-17.5a12.678 12.678 0 0 0-.3-3.4L149.8 37c-1.7-7.1-3.2-10.3-15.7-16.6-9.7-5-30.8-13.1-37.1-13.1-5.8 0-7.5 7.5-14.4 7.5-6.7 0-11.6-5.6-17.9-5.6-6 0-9.9 4.1-12.9 12.5 0 0-8.4 23.7-9.5 27.2a4.216 4.216 0 0 0-.3 1.9c0 9.2 36.3 39.4 85 39.4Zm32.5-11.4c1.7 8.2 1.7 9.1 1.7 10.1 0 14-15.7 21.8-36.4 21.8-46.8 0-87.7-27.4-87.7-45.5a17.535 17.535 0 0 1 1.5-7.3C21.8 58.8 0 61.8 0 81c0 31.5 74.6 70.3 133.7 70.3 45.3 0 56.7-20.5 56.7-36.6-.1-12.8-11-27.3-30.9-35.9Z" fill="#e00"></path><path d="M159.5 78.8c1.7 8.2 1.7 9.1 1.7 10.1 0 14-15.7 21.8-36.4 21.8-46.8 0-87.7-27.4-87.7-45.5a17.535 17.535 0 0 1 1.5-7.3l3.7-9.1a4.877 4.877 0 0 0-.3 2c0 9.2 36.3 39.4 85 39.4 12.5 0 30.6-2.6 30.6-17.5a12.678 12.678 0 0 0-.3-3.4Z"></path><path d="M253.5 158.7a2.22 2.22 0 0 1-2.2-2.2V2.2a2.2 2.2 0 0 1 4.4 0v154.2a2.242 2.242 0 0 1-2.2 2.3Z" fill="#111"></path><text data-name="Demo Platform" transform="translate(1186 149)" fill="#111" font-size="82" font-family="'RedHatDisplay', 'Overpass', overpass, helvetica, arial, sans-serif" font-weight="700"><tspan x="-877.892" y="0">Demo Platform</tspan></text></svg></div></div>
+</footer>
+<script defer src="../_/js/vendor/clipboard.js"></script>
+<script defer src="../_/js/site.js"></script>
+<script defer src="../_/js/vendor/highlight.js"></script>
+<script async src="../_/js/vendor/tabs.js"></script>
+  </body>
+</html>

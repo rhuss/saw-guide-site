@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>How governance works :: Secure Agent Workspace Guide</title>
+    <link rel="prev" href="architecture.html">
+    <link rel="next" href="benefits-challenges.html">
+    <meta name="description" content="How one governance interceptor enforces sandbox policy, provider allowlists, and credential-injection rules across every user gateway.">
+    <meta name="generator" content="Antora 3.1.15">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@400;500;700&family=Red+Hat+Mono:wght@400;700&family=Red+Hat+Text:wght@400;700&display=swap">
+    <link rel="stylesheet" href="../_/css/site.css">
+<link rel="stylesheet" href="../_/css/vendor/tabs.css">
+<link rel="icon" href="../_/img/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="../_/img/favicon.ico" type="image/x-icon">
+  </head>
+  <body class="article">
+<a class="skip-link" href="#content">Skip to content</a>
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <span class="navbar-item navbar-logo">
+        <img src="../_/img/logo-demo-platform.svg" alt="Red Hat Demo Platform" class="navbar-logo-img">
+      </span>
+      <a class="navbar-item site-title" target="_blank" href="..">Secure Agent Workspace Guide</a>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="saw-guide" data-version="">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="index.html" class=" query-params-link">Secure Agent Workspace</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Concepts</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="index.html">What SAW is, and why</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="architecture.html">Architecture</a>
+  </li>
+  <li class="nav-item is-current-page" data-depth="1">
+    <a class="nav-link" href="governance.html">How governance works</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="benefits-challenges.html">Benefits and challenges</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Admin guide</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="admin/prerequisites.html">Prerequisites and sizing</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="admin/install-gitops.html">Install with GitOps</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="admin/install-manual.html">Install manually</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="admin/onboard-users.html">Onboard users</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="admin/day2.html">Day 2 operations</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="admin/test-troubleshoot.html">Test and troubleshoot</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">User guide</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="user/access.html">What your admin hands you</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="user/connect.html">Log in and connect</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="user/sandboxes.html">Work with sandboxes</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="user/what-you-can-change.html">What you can and cannot change</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Reference</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="reference/charts.html">Chart values</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="reference/bom.html">BOM and profiles</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="reference/make-targets.html">Make targets</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="reference/ports-namespaces.html">Ports, Routes, and namespaces</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Experimental</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="experimental.html">Experimental and upcoming features</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+  </div>
+  <ul class="components">
+    <li class="component is-current">
+      <span class="title">Secure Agent Workspace</span>
+      <ul class="versions">
+        <li class="version is-current">
+          <a href="index.html">default</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>    </div>
+  </aside>
+</div>
+<main class="article" id="content">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="index.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="index.html">Secure Agent Workspace</a></li>
+    <li>Concepts</li>
+    <li><a href="governance.html">How governance works</a></li>
+  </ul>
+</nav>
+</div>
+  <div class="content">
+<article class="doc">
+<h1 class="page">How governance works</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>The <a href="architecture.html" class="xref page">architecture overview</a> shows that every user VM runs its own OpenShell gateway.
+That raises a practical question: how does the platform enforce a single, consistent policy across all of those gateways?
+The answer is the governance interceptor, a standalone gRPC service that sits between every gateway and its sandbox operations.</p>
+</div>
+<div class="imageblock expand">
+<div class="content">
+<img src="_images/02-governance-flow.svg" alt="Governance flow diagram showing three gateways connecting to a single governance interceptor, with policy flowing from Git through Argo CD and ConfigMaps">
+</div>
+<div class="title">Figure 1. How governance flows from Git through the interceptor to every gateway. Running sandboxes keep their policy because the reload push targets 127.0.0.1 inside the interceptor Pod.</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="one-interceptor-many-gateways"><a class="anchor" href="#one-interceptor-many-gateways"></a>One interceptor, many gateways</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>SAW deploys the governance interceptor as a single-replica Deployment in the <code>openshell-agents</code> namespace.
+It listens for gRPC on port 18081 and is the only process that holds the admin-signed sandbox policy and provider profiles.
+A NetworkPolicy restricts ingress to <code>virt-launcher</code> Pods from namespaces labeled <code>openshell.pattern/saw=true</code>, so only the gateway VMs can reach it.</p>
+</div>
+<div class="paragraph">
+<p>One replica is enough because the interceptor protocol is stateless per call.
+Each evaluation request carries the gRPC method name (for example <code>CreateSandbox</code>), the caller&#8217;s principal, and the proposed operation.
+There is no session, no gateway-specific state, and no affinity requirement.
+Every gateway in the cluster connects to the same endpoint and receives the same policy enforcement.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="what-a-gateway-asks-and-when"><a class="anchor" href="#what-a-gateway-asks-and-when"></a>What a gateway asks, and when</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>At startup, each gateway calls <code>Describe</code> on the interceptor to learn which operations it governs.
+The same call checks that both sides come from compatible OpenShell releases (see <a href="#interceptor-versions">Interceptor and gateway versions</a>).
+The gateway builds an immutable execution plan from that response.
+Changing the interceptor&#8217;s bindings requires a gateway restart because registration is static.</p>
+</div>
+<div class="paragraph">
+<p>For each intercepted API call, the gateway evaluates the request in phase order: <code>modify_operation</code> first, then <code>validate</code>, and finally <code>post_commit</code> after the handler commits.
+If the interceptor is unreachable or returns an error, the gateway&#8217;s <code>fail_closed</code> failure policy rejects the operation before handler dispatch.
+A valid deny result (the interceptor returning <code>allowed=false</code>) always rejects, regardless of the failure policy.</p>
+</div>
+<div class="paragraph">
+<p>The gateway TOML that SAW renders into each VM shows the full configuration.
+It opens with <code>[openshell] version = 2</code>, the configuration schema that gateways of the 0.1 release series require.
+They refuse to start with a file that lacks it.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-toml hljs" data-lang="toml"># Source: https://github.com/validatedpatterns-sandbox/secure-agent-workspace/blob/4768f02d4415449de74403df62bad0c03630448e/charts/openshell-saw/templates/_helpers.tpl (rendered with defaults)
+
+[openshell]
+version = 2
+
+[openshell.gateway]
+compute_driver = "podman"
+provider_profile_sources = [
+  { type = "interceptor", name = "governance" },  <i class="conum" data-value="1"></i><b>(1)</b>
+]
+
+[[openshell.gateway.interceptors]]
+name           = "governance"
+grpc_endpoint  = "http://governance-interceptor.openshell-agents.svc.cluster.local:18081"  <i class="conum" data-value="2"></i><b>(2)</b>
+allow_insecure_transport = true   <i class="conum" data-value="3"></i><b>(3)</b>
+order          = 10
+failure_policy = "fail_closed"    <i class="conum" data-value="4"></i><b>(4)</b>
+binding_policy = "allowlist"      <i class="conum" data-value="5"></i><b>(5)</b>
+timeout        = "500ms"
+
+[[openshell.gateway.interceptors.bindings]]  <i class="conum" data-value="6"></i><b>(6)</b>
+rpc = "openshell.v1.OpenShell/CreateSandbox"
+phases = ["modify_operation", "validate"]
+
+[[openshell.gateway.interceptors.bindings]]
+rpc = "openshell.v1.OpenShell/CreateProvider"
+phases = ["validate"]
+
+[[openshell.gateway.interceptors.bindings]]
+rpc = "openshell.v1.OpenShell/UpdateConfig"
+phases = ["validate"]
+
+[[openshell.gateway.interceptors.bindings]]
+rpc = "openshell.v1.OpenShell/SubmitPolicyAnalysis"
+phases = ["validate"]</code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>The gateway fetches provider profiles exclusively from the interceptor. The <code>provider_profile_sources</code> list contains only the interceptor source, so profiles users import are not used.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>The endpoint resolves to the in-cluster Service DNS name of the interceptor Deployment in <code>openshell-agents</code>, on port 18081.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="3"></i><b>3</b></td>
+<td>Traffic between gateway and interceptor stays inside the cluster as plaintext gRPC (<code>allow_insecure_transport = true</code>). No JWT authentication is performed on these calls.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="4"></i><b>4</b></td>
+<td><code>fail_closed</code> means any interceptor failure (timeout, crash, network partition) blocks the operation rather than letting it through.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="5"></i><b>5</b></td>
+<td><code>binding_policy = "allowlist"</code> means only the bindings listed below take effect. If the interceptor&#8217;s manifest advertises additional bindings, they are ignored.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="6"></i><b>6</b></td>
+<td>Four operations are bound. <code>CreateSandbox</code> runs in both <code>modify_operation</code> (policy injection) and <code>validate</code> (signature check) phases. <code>CreateProvider</code>, <code>UpdateConfig</code>, and <code>SubmitPolicyAnalysis</code> run in <code>validate</code> only.</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="provider-profiles-follow-the-configmap"><a class="anchor" href="#provider-profiles-follow-the-configmap"></a>Provider profiles follow the ConfigMap</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The governance interceptor reads provider profiles from a directory mounted as a ConfigMap volume.
+Seven profiles ship with SAW: <code>brave</code>, <code>gemini</code>, <code>github</code>, <code>nvidia</code>, <code>openai</code>, <code>slack</code>, and <code>web-search</code>.
+The admin controls which profiles are available by editing the <code>governance-policy</code> chart and pushing to Git.
+Argo CD syncs the change, kubelet propagates the updated ConfigMap into the Pod (typically within about 60 seconds), and the interceptor picks up the new files on the next evaluation.</p>
+</div>
+<div class="paragraph">
+<p>A profile names the endpoints a provider may reach and, in its <code>binaries</code> list, the executables allowed to use those endpoints.
+Every profile has to list them, because a missing or empty <code>binaries</code> list allows nothing: the profile then lets no process reach its endpoints.
+The <code>openai</code> profile, for example, lists <code>curl</code> and the <code>node</code> binary that OpenClaw runs under, at the paths the sandbox images use.
+When you add your own profile, check these paths against the image your agents run in.</p>
+</div>
+<div class="paragraph">
+<p>Because <code>provider_profile_sources</code> points only at the interceptor, the gateway&#8217;s profile catalog is whatever the interceptor serves.
+OpenShell has no built-in profile catalog at this release, and the gateway rejects a <code>{ type = "builtin" }</code> source.
+The only other source type, <code>user</code>, holds imported profiles, and SAW leaves it out.
+The gateway calls <code>SnapshotProviderProfiles</code> on each provider lookup, so profiles are never cached by the gateway.
+When a user runs <code>CreateProvider</code>, the interceptor&#8217;s validate phase checks that the provider type matches a managed profile ID and denies the request if it does not.</p>
+</div>
+<div class="paragraph">
+<p>The interceptor signs every profile it serves.
+The upstream example stores the signature, the profile hash, and the signing key ID as three annotations, but SAW&#8217;s interceptor image keeps only the signature.
+That patch works around <a href="https://github.com/NVIDIA/OpenShell/issues/3929" target="_blank" rel="noopener">NVIDIA/OpenShell#3929</a>.
+SAW&#8217;s image build describes the bug this way: a profile with more than one annotation gets a different revision on every gateway call, so a sandbox that uses the provider never finishes starting.
+Nothing is lost, because the signature is a JWT that already carries the hash as a claim and the key ID in its header.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="sandbox-policy-is-fixed-at-creation"><a class="anchor" href="#sandbox-policy-is-fixed-at-creation"></a>Sandbox policy is fixed at creation</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>When a user creates a sandbox, the interceptor&#8217;s <code>modify_operation</code> phase injects the current admin policy into the creation request and stamps a cryptographic signature.
+The subsequent <code>validate</code> phase verifies that the policy matches the signed baseline.
+From that point forward, the sandbox carries a specific, signed policy revision.</p>
+</div>
+<div class="paragraph">
+<p>When the admin updates <code>policy.yaml</code> in Git, the interceptor&#8217;s file watcher detects the change, re-reads the file, and re-signs it with the current key.
+It then attempts a reload push: it calls <code>ListSandboxes</code> and <code>UpdateConfig</code> on the gateway endpoint configured as <code>--gateway-endpoint</code>.</p>
+</div>
+<div class="admonitionblock caution">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-caution" title="Caution"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>SAW sets <code>gatewayEndpoint</code> to <code><a href="https://127.0.0.1:17670" class="bare">https://127.0.0.1:17670</a></code>, which is the gateway address inside the interceptor Pod itself.
+Since the interceptor does not run inside a user VM, this reload push never reaches any user gateway.
+Running sandboxes keep their policy until they are destroyed and recreated.
+Only new sandboxes pick up the updated policy through <code>CreateSandbox</code>.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>We can trace this in the diagram: the reload push arrow loops back to <code>127.0.0.1</code> and stops at the interceptor Pod boundary.
+New sandboxes always receive the current signed policy.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="who-wins-in-a-policy-conflict"><a class="anchor" href="#who-wins-in-a-policy-conflict"></a>Who wins in a policy conflict</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>If a user attempts to change a sandbox&#8217;s policy through the CLI (<code>openshell policy set</code>) or the SDK, that call reaches the gateway as an <code>UpdateConfig</code> request.
+The interceptor&#8217;s validate phase checks for a valid governance signature on the policy payload.
+An unsigned or stale-signed change is denied with <code>PERMISSION_DENIED</code>, and nothing is merged.
+The user sees the interceptor&#8217;s denial reason and no policy revision is created.</p>
+</div>
+<div class="paragraph">
+<p>Admins change policy through Git, not through the CLI.
+The admin edits <code>policy.yaml</code>, pushes to the repository, and Argo CD syncs the updated ConfigMap into the interceptor Pod.
+The interceptor re-signs the new policy, and from that moment every new sandbox receives it.</p>
+</div>
+<div class="paragraph">
+<p>After an interceptor restart, the signing key changes because the interceptor generates a fresh Ed25519 key per process start.
+Sandboxes created before the restart carry the old key&#8217;s ID in their policy signature.
+An <code>UpdateConfig</code> call on those pre-restart sandboxes is denied because the key ID no longer matches.
+<code>CreateSandbox</code> is unaffected because the <code>modify_operation</code> phase always injects a fresh signature with the new key.</p>
+</div>
+<div class="paragraph">
+<p>OpenShell also supports a global policy at the gateway level that replaces all sandbox policies.
+RFC 0002 (Agent-Driven Policy Management) defines an "org ceiling" concept that caps the maximum capability envelope for agent-proposed policy changes.
+Both mechanisms are upstream features, separate from the interceptor-based governance that SAW deploys.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="turning-governance-off"><a class="anchor" href="#turning-governance-off"></a>Turning governance off</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>If the <code>governance.enabled</code> flag is set to <code>false</code> in the <code>openshell-saw</code> chart values, the gateway TOML omits the interceptor block and the <code>provider_profile_sources</code> line.
+The gateway then uses its default source, which holds only imported profiles.
+When the BOM names a provider whose profile is missing, the installer imports the copy bundled with the <code>openshell-saw</code> chart, which exists for <code>brave</code>, <code>nvidia</code>, and <code>openai</code>.
+The installer skips every other provider with a warning until the admin either re-enables governance or imports its profile manually.</p>
+</div>
+<div class="paragraph">
+<p>Sandboxes created without governance enforcement receive no admin-injected policy.
+The sandbox runs with whatever policy the user provides (or the image-bundled policy if none is specified, or the restrictive default if neither exists).</p>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="title">Experimental: in review</div>
+<div class="paragraph">
+<p>Choosing between the governance interceptor and APF is not part of the baseline.
+It is proposed in <a href="https://github.com/validatedpatterns-sandbox/secure-agent-workspace/pull/52" target="_blank" rel="noopener">PR&#160;#52</a> (status as of 2026-10-02) and may change or be dropped before it merges.
+See <a href="experimental.html#apf-switch" class="xref page">Experimental and upcoming features</a> for what it will change.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="interceptor-versions"><a class="anchor" href="#interceptor-versions"></a>Interceptor and gateway versions</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>SAW requires the governance interceptor and the gateways to run the same OpenShell release.
+That rule is SAW&#8217;s own policy, and the protocol check that OpenShell runs is looser.
+When a gateway starts, it sends its version metadata in the <code>Describe</code> call, and the interceptor checks that metadata before it returns its manifest.
+If the gateway sends no metadata, speaks a different major version of the extension protocol, or lacks a capability the interceptor requires, the interceptor answers <code>FAILED_PRECONDITION</code>.
+Gateways from the 0.0.x series predate this exchange and send no metadata at all, so they always fail the check.
+The check works in the other direction too: the gateway rejects a manifest that carries no interceptor metadata.</p>
+</div>
+<div class="paragraph">
+<p>Either way, the gateway doesn&#8217;t start, because a failed <code>Describe</code> call during startup is fatal.
+That&#8217;s stricter than the <code>fail_closed</code> policy, which only blocks the governed operations.
+A gateway that can&#8217;t negotiate with its interceptor serves no requests at all.</p>
+</div>
+<div class="paragraph">
+<p>SAW keeps the two in step by building the interceptor from the same OpenShell tag the gateways come from.
+A GitHub workflow reads the tag from <code>source.git.ref</code> in <code>image-builder-charts/helm/governance-interceptor-image/values.yaml</code>.
+It builds the upstream interceptor example at that tag, applies the profile annotation patch described above, and tags the image with the same tag.
+The <code>governance-interceptor</code> chart then pulls <code>ghcr.io/validatedpatterns-sandbox/governance-interceptor:v0.1.2</code>, while each VM&#8217;s BOM installs the gateway build <code>0.1.2-rhaiv.0</code> of the same release.</p>
+</div>
+<div class="paragraph">
+<p>Because all gateways share this one interceptor, and SAW pins it to the gateways' release, they move to a new OpenShell release series at the same time.
+On the move from the 0.0.x series the check itself enforces this: once the interceptor runs the new series, a 0.0.x gateway fails at its next start.
+Between later series, a gateway fails the check only if the protocol major version or the required capabilities change.
+We cover the steps in <a href="admin/day2.html#openshell-upgrade" class="xref page">Day 2 operations</a>.</p>
+</div>
+</div>
+</div>
+<nav class="pagination">
+  <span class="prev"><a href="architecture.html" class="query-params-link">Architecture</a></span>
+  <span class="next"><a href="benefits-challenges.html" class="query-params-link">Benefits and challenges</a></span>
+</nav>
+</article>
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>  </div>
+</main>
+</div>
+<footer class="footer">
+  <a href="https://demo.redhat.com" target="_blank" class="poweredBy"><p>Powered by</p><div class="labInfo_poweredBy" style="display: block; width: 260px;"><svg class="labInfo_poweredByLogo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1508.5 178.739"><g fill="#111"><path d="M316.6 63.2v-56H342a21.279 21.279 0 0 1 7.8 1.3 18.111 18.111 0 0 1 5.9 3.5 15.577 15.577 0 0 1 5 11.8 15.051 15.051 0 0 1-3.1 9.5 16.836 16.836 0 0 1-8.4 5.8l12.5 24.1h-9.3l-11.6-23H325v23Zm24.7-48.6H325v18.7h16.3q5.25 0 8.1-2.7a8.7 8.7 0 0 0 2.8-6.6 8.7 8.7 0 0 0-2.8-6.6c-1.8-1.9-4.5-2.8-8.1-2.8ZM364.1 42.8a20.674 20.674 0 0 1 1.6-8.2 20.288 20.288 0 0 1 4.3-6.7 19.92 19.92 0 0 1 6.5-4.5 19.718 19.718 0 0 1 8-1.6 18.463 18.463 0 0 1 7.8 1.6 18.677 18.677 0 0 1 6.2 4.5 20.927 20.927 0 0 1 4.1 6.8 23.2 23.2 0 0 1 1.5 8.4v2.3H372a13.822 13.822 0 0 0 4.6 8.4 13.6 13.6 0 0 0 9.1 3.3 15.553 15.553 0 0 0 5.7-1 12.858 12.858 0 0 0 4.6-2.6l5.1 5a25.983 25.983 0 0 1-7.4 4.1 24.69 24.69 0 0 1-8.4 1.3 21.306 21.306 0 0 1-8.4-1.6 22.763 22.763 0 0 1-6.8-4.4 20.788 20.788 0 0 1-4.5-6.7 23.2 23.2 0 0 1-1.5-8.4Zm20.2-14.2a11.527 11.527 0 0 0-8 3 13.046 13.046 0 0 0-4.2 7.8h24.2a13.091 13.091 0 0 0-4.2-7.8 11.106 11.106 0 0 0-7.8-3ZM443.1 63.2v-3.8a19.448 19.448 0 0 1-5.8 3.3 18.924 18.924 0 0 1-6.7 1.2 19.824 19.824 0 0 1-14.6-6.1 22.268 22.268 0 0 1-4.4-6.7 21.812 21.812 0 0 1 0-16.4A20.534 20.534 0 0 1 416 28a19.335 19.335 0 0 1 6.6-4.5 20.334 20.334 0 0 1 8.2-1.6 20.7 20.7 0 0 1 6.6 1 19.415 19.415 0 0 1 5.7 3V7.2l8-1.8v57.8Zm-25.2-20.4a13.718 13.718 0 0 0 4 10.1 13.45 13.45 0 0 0 9.8 4.1 14.956 14.956 0 0 0 6.4-1.3 15.954 15.954 0 0 0 4.9-3.6V33.6a14.988 14.988 0 0 0-4.9-3.5 15.271 15.271 0 0 0-6.4-1.3 13.423 13.423 0 0 0-9.9 4 13.806 13.806 0 0 0-3.9 10ZM478.1 63.2v-56h8.4v24h29.8v-24h8.4v56h-8.4V38.8h-29.8v24.4ZM547.2 64a16.483 16.483 0 0 1-10.8-3.5 11.037 11.037 0 0 1-4.2-8.9 10.375 10.375 0 0 1 4.7-9.2 20.76 20.76 0 0 1 11.8-3.2 27.841 27.841 0 0 1 5.8.6 27.374 27.374 0 0 1 5.3 1.6v-4.3a8.143 8.143 0 0 0-2.6-6.5 11.452 11.452 0 0 0-7.4-2.2 20.788 20.788 0 0 0-6 .9 34.616 34.616 0 0 0-6.6 2.6l-3-6a54.169 54.169 0 0 1 8.4-3.1 33.18 33.18 0 0 1 8.3-1.1c5.2 0 9.3 1.3 12.2 3.8s4.4 6.1 4.4 10.8v27h-7.8v-3.5a19.441 19.441 0 0 1-5.8 3.2 23.54 23.54 0 0 1-6.7 1Zm-7.3-12.6a5.646 5.646 0 0 0 2.6 4.8 11.193 11.193 0 0 0 6.6 1.8 16.256 16.256 0 0 0 5.9-1 14.449 14.449 0 0 0 4.9-2.9V47a19.778 19.778 0 0 0-4.8-1.8 24.933 24.933 0 0 0-5.7-.6 11.859 11.859 0 0 0-6.8 1.8 5.728 5.728 0 0 0-2.7 5ZM580.6 53.2v-24H572v-6.7h8.6V12.1l7.9-1.9v12.3h12v6.7h-12v22.1a5.94 5.94 0 0 0 1.4 4.4c.9.9 2.5 1.3 4.6 1.3a23.637 23.637 0 0 0 3-.2 10.857 10.857 0 0 0 2.8-.8v6.7a19.28 19.28 0 0 1-3.8.9 27.484 27.484 0 0 1-3.8.3c-3.9 0-7-.9-9-2.8-2-1.7-3.1-4.4-3.1-7.9Z"></path></g><path d="M127 90.2c12.5 0 30.6-2.6 30.6-17.5a12.678 12.678 0 0 0-.3-3.4L149.8 37c-1.7-7.1-3.2-10.3-15.7-16.6-9.7-5-30.8-13.1-37.1-13.1-5.8 0-7.5 7.5-14.4 7.5-6.7 0-11.6-5.6-17.9-5.6-6 0-9.9 4.1-12.9 12.5 0 0-8.4 23.7-9.5 27.2a4.216 4.216 0 0 0-.3 1.9c0 9.2 36.3 39.4 85 39.4Zm32.5-11.4c1.7 8.2 1.7 9.1 1.7 10.1 0 14-15.7 21.8-36.4 21.8-46.8 0-87.7-27.4-87.7-45.5a17.535 17.535 0 0 1 1.5-7.3C21.8 58.8 0 61.8 0 81c0 31.5 74.6 70.3 133.7 70.3 45.3 0 56.7-20.5 56.7-36.6-.1-12.8-11-27.3-30.9-35.9Z" fill="#e00"></path><path d="M159.5 78.8c1.7 8.2 1.7 9.1 1.7 10.1 0 14-15.7 21.8-36.4 21.8-46.8 0-87.7-27.4-87.7-45.5a17.535 17.535 0 0 1 1.5-7.3l3.7-9.1a4.877 4.877 0 0 0-.3 2c0 9.2 36.3 39.4 85 39.4 12.5 0 30.6-2.6 30.6-17.5a12.678 12.678 0 0 0-.3-3.4Z"></path><path d="M253.5 158.7a2.22 2.22 0 0 1-2.2-2.2V2.2a2.2 2.2 0 0 1 4.4 0v154.2a2.242 2.242 0 0 1-2.2 2.3Z" fill="#111"></path><text data-name="Demo Platform" transform="translate(1186 149)" fill="#111" font-size="82" font-family="'RedHatDisplay', 'Overpass', overpass, helvetica, arial, sans-serif" font-weight="700"><tspan x="-877.892" y="0">Demo Platform</tspan></text></svg></div></div>
+</footer>
+<script defer src="../_/js/vendor/clipboard.js"></script>
+<script defer src="../_/js/site.js"></script>
+<script defer src="../_/js/vendor/highlight.js"></script>
+<script async src="../_/js/vendor/tabs.js"></script>
+  </body>
+</html>

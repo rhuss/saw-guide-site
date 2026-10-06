@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Benefits and challenges :: Secure Agent Workspace Guide</title>
+    <link rel="prev" href="governance.html">
+    <link rel="next" href="admin/prerequisites.html">
+    <meta name="description" content="What SAW gives you, what it costs, and where the rough edges are.">
+    <meta name="generator" content="Antora 3.1.15">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@400;500;700&family=Red+Hat+Mono:wght@400;700&family=Red+Hat+Text:wght@400;700&display=swap">
+    <link rel="stylesheet" href="../_/css/site.css">
+<link rel="stylesheet" href="../_/css/vendor/tabs.css">
+<link rel="icon" href="../_/img/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="../_/img/favicon.ico" type="image/x-icon">
+  </head>
+  <body class="article">
+<a class="skip-link" href="#content">Skip to content</a>
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <span class="navbar-item navbar-logo">
+        <img src="../_/img/logo-demo-platform.svg" alt="Red Hat Demo Platform" class="navbar-logo-img">
+      </span>
+      <a class="navbar-item site-title" target="_blank" href="..">Secure Agent Workspace Guide</a>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="saw-guide" data-version="">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="index.html" class=" query-params-link">Secure Agent Workspace</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Concepts</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="index.html">What SAW is, and why</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="architecture.html">Architecture</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="governance.html">How governance works</a>
+  </li>
+  <li class="nav-item is-current-page" data-depth="1">
+    <a class="nav-link" href="benefits-challenges.html">Benefits and challenges</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Admin guide</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="admin/prerequisites.html">Prerequisites and sizing</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="admin/install-gitops.html">Install with GitOps</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="admin/install-manual.html">Install manually</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="admin/onboard-users.html">Onboard users</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="admin/day2.html">Day 2 operations</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="admin/test-troubleshoot.html">Test and troubleshoot</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">User guide</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="user/access.html">What your admin hands you</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="user/connect.html">Log in and connect</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="user/sandboxes.html">Work with sandboxes</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="user/what-you-can-change.html">What you can and cannot change</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Reference</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="reference/charts.html">Chart values</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="reference/bom.html">BOM and profiles</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="reference/make-targets.html">Make targets</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="reference/ports-namespaces.html">Ports, Routes, and namespaces</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Experimental</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="experimental.html">Experimental and upcoming features</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+  </div>
+  <ul class="components">
+    <li class="component is-current">
+      <span class="title">Secure Agent Workspace</span>
+      <ul class="versions">
+        <li class="version is-current">
+          <a href="index.html">default</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>    </div>
+  </aside>
+</div>
+<main class="article" id="content">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="index.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="index.html">Secure Agent Workspace</a></li>
+    <li>Concepts</li>
+    <li><a href="benefits-challenges.html">Benefits and challenges</a></li>
+  </ul>
+</nav>
+</div>
+  <div class="content">
+<article class="doc">
+<h1 class="page">Benefits and challenges</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>The previous pages walked through <a href="architecture.html" class="xref page">how SAW components fit together</a> and <a href="governance.html" class="xref page">how governance enforces a single policy across every gateway</a>.
+This page steps back from the mechanics and looks at what those design choices buy you, and what they cost.
+If you are evaluating SAW for your environment, this is the page to read before committing to an install.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="benefits"><a class="anchor" href="#benefits"></a>Benefits</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Each benefit below maps to a design decision covered in the earlier Concepts pages.
+We keep the descriptions short here and link back to the details.</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">Dedicated VM per user with sandbox isolation</dt>
+<dd>
+<p>Every user gets their own VirtualMachine running its own OpenShell gateway.
+Sandboxes inside that VM are Podman containers, so a compromised agent process is contained by both the container boundary and the VM boundary.
+One user&#8217;s workload cannot reach another user&#8217;s namespace, credentials, or sandbox processes.</p>
+</dd>
+<dt class="hdlist1">Credentials never inside the sandbox</dt>
+<dd>
+<p>Inference API keys travel from Vault through the External Secrets Operator into the VM, where the installer registers them with the gateway as providers, but they never enter the sandbox container itself.
+The agent holds only a placeholder key, and the sandbox proxy swaps in the real key only for requests to the endpoints its provider profile allows, from the binaries the profile lists.
+While the sandbox boundary holds, a compromised agent sees only placeholders, never the real key (see the <a href="architecture.html#how-a-credential-reaches-an-agent-request" class="xref page">credential path</a>).</p>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>This protection is only as strong as the sandbox boundary.
+Inside a user&#8217;s VM, the components that hold the real credentials (the gateway, its encrypted credential store, and the supervisor that injects keys) run under the same account as the sandbox containers and share the VM&#8217;s kernel.
+So the boundary between the agent and the credentials is the container boundary, not a hypervisor one: the per-user VM separates one user from another, not the agent from its own keys.
+For many deployments this is a reasonable trade-off, because the sandbox only ever holds a placeholder, the proxy injects the real key per request, policy limits where that key can be used, and the per-user VM keeps the blast radius of an escape to a single user.
+If your threat model requires the credentials to stay protected even after a sandbox escape, consider a design that places a hypervisor boundary between the agent and the credentials, for example running the sandboxes through OpenShell&#8217;s Kubernetes driver with a Kata Containers runtime, where each sandbox gets its own lightweight VM and the gateway, supervisor, and credentials run outside it.</p>
+</div>
+<div class="imageblock expand">
+<div class="content">
+<img src="_images/05-credential-boundary-v3.svg" alt="Trust boundaries in SAW today: the agent sandbox and the credentials both sit in one per-user VM, separated only by a container boundary (escape 1), while the hypervisor boundary wraps the whole VM (escape 2).">
+</div>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</dd>
+<dt class="hdlist1">One admin-owned governance point that fails closed</dt>
+<dd>
+<p>A single governance interceptor enforces the same sandbox policy, provider allowlist, and credential-injection rules across every user gateway.
+If the interceptor is unreachable, the gateway blocks the operation rather than letting it through.
+The <a href="governance.html" class="xref page">governance page</a> covers the full enforcement flow.</p>
+</dd>
+<dt class="hdlist1">Everything declarative in Git</dt>
+<dd>
+<p>Adding a user, changing a policy, or updating the Bill of Materials is a Git commit.
+Argo CD reconciles the change into the cluster, so there is no imperative drift between what the admin intended and what is running.</p>
+</dd>
+<dt class="hdlist1">Verifiable installer bundle with digest-pinned components</dt>
+<dd>
+<p>The BOM pins every OpenShell component by container image digest, not by tag.
+A golden image built from the baseline contains cosign and the bundle verifier <code>verify-bundle</code>, and it can pin a signing-mode floor.
+With a signed bundle, the in-guest installer then checks bundle integrity before it installs anything.
+Bundle verification works only with such an image, because the prebuilt image that <code>make copy-images</code> mirrors at this baseline predates <code>verify-bundle</code>.
+The chart at this baseline ships no signed bundle either, so you also sign the bundle yourself and add your public key to the image.
+The <a href="admin/install-manual.html" class="xref page">manual install page</a> shows how to build the image.</p>
+</dd>
+<dt class="hdlist1">Choice of harness</dt>
+<dd>
+<p>SAW does not lock you into a single agent harness.
+The default BOM profile includes both OpenClaw and NemoClaw sandboxes, and you can bring your own container image if neither fits.</p>
+</dd>
+</dl>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="challenges-and-drawbacks"><a class="anchor" href="#challenges-and-drawbacks"></a>Challenges and drawbacks</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Every system has trade-offs.
+We list each challenge with a brief explanation of why it matters and a pointer to where the guide addresses it.</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">Single-replica interceptor is a single point of failure</dt>
+<dd>
+<p>The governance interceptor runs as a single-replica Deployment.
+If the Pod is evicted, rescheduled, or crashes, every gateway loses its policy enforcement endpoint until the replica recovers.
+The fail-closed design means operations are blocked during the outage rather than running without governance.
+See <a href="admin/day2.html" class="xref page">Day 2 operations</a> for monitoring and recovery guidance.</p>
+</dd>
+<dt class="hdlist1">Policy changes do not reach running sandboxes</dt>
+<dd>
+<p>When the admin updates <code>policy.yaml</code> in Git, the interceptor re-signs it and applies it to every new sandbox.
+Sandboxes that are already running keep the policy they were created with because the interceptor&#8217;s reload push targets <code>127.0.0.1</code> inside its own Pod and never reaches the user VMs.
+You must destroy and recreate a sandbox to pick up a policy change.
+The <a href="governance.html#sandbox-policy-is-fixed-at-creation" class="xref page">governance page</a> explains the mechanism in detail.</p>
+</dd>
+<dt class="hdlist1">BOM changes restart the VM unless <code>liveInputs</code> is enabled</dt>
+<dd>
+<p>The default value of <code>vm.liveInputs</code> is <code>false</code>, which means the BOM ConfigMap is mounted as an iso9660 disk.
+Changing a BOM component or a provider credential requires a VM restart to take effect.
+Setting <code>liveInputs</code> to <code>true</code> switches to virtiofs, which makes changes visible without a restart, but that setting itself requires recreating the VM.
+See <a href="admin/day2.html" class="xref page">Day 2 operations</a> for the operational procedure.</p>
+</dd>
+<dt class="hdlist1">One VM per user plus bare metal or supported cloud platform</dt>
+<dd>
+<p>Each user consumes 4 CPU cores, 8 GiB of memory, and 40 GiB of disk by default, on top of 8 cores and 16 GiB for cluster overhead.
+OpenShift Virtualization requires bare metal nodes or a <a href="https://docs.redhat.com/en/documentation/openshift_container_platform/4.22/html/virtualization/installing#compatible-platforms_preparing-cluster-for-virt" target="_blank" rel="noopener">supported cloud platform</a>, so check the compatibility list before planning your deployment.
+The <a href="admin/prerequisites.html" class="xref page">prerequisites page</a> covers sizing in detail.</p>
+</dd>
+<dt class="hdlist1">One gateway per namespace with no per-gateway admin groups</dt>
+<dd>
+<p>Every user namespace contains exactly one gateway, and there is no mechanism to give different admin groups control over different gateways.
+All governance flows through the single interceptor in <code>openshell-agents</code>, which the cluster admin controls.
+If your organization needs per-team delegation, you will need to run separate SAW installs.
+SAW does not provide a workaround for this at the baseline.</p>
+</dd>
+<dt class="hdlist1">The Fedora golden image is not a supported product</dt>
+<dd>
+<p>The VM runs a Fedora 44 cloud image customized with <code>virt-customize</code>.
+Fedora is a community project with a roughly 13-month lifecycle per release, and Red Hat does not provide commercial support for it.
+If your security policy requires a supported operating system, you will need to build your own golden image.
+SAW does not ship an alternative base image at the baseline.</p>
+</dd>
+<dt class="hdlist1">Downstream OpenShell pin and upstream API churn</dt>
+<dd>
+<p>SAW pins OpenShell at version 0.1.2-rhaiv.0, a downstream build of the upstream v0.1.2 release.
+OpenShell has not reached 1.0, and SAW&#8217;s installer treats every new minor release as a breaking one.
+The move to the 0.1 series, for example, recreated every sandbox and removed managed inference routing.
+Upgrading means testing against those changes and moving the governance interceptor to the same release.
+See <a href="admin/day2.html#openshell-upgrade" class="xref page">Day 2 operations</a> for upgrade guidance.</p>
+</dd>
+<dt class="hdlist1">User and sandbox names are limited to 19 characters</dt>
+<dd>
+<p>The <code>saw-users</code> chart validates that each user name is a lowercase DNS label of at most 19 characters.
+This limit comes from OpenShell&#8217;s VirtualMachine naming rules and the Route labels derived from them.
+Names that are too long or that contain uppercase letters fail at Helm render time.
+The <a href="admin/install-gitops.html" class="xref page">GitOps install page</a> and <a href="admin/install-manual.html" class="xref page">manual install page</a> note this constraint where you first define user names.</p>
+</dd>
+<dt class="hdlist1">Operators installed but unused</dt>
+<dd>
+<p>The validated patterns framework subscribes to Red Hat Developer Hub and OpenShift AI operators through <code>values-prod.yaml</code>, but SAW does not deploy any applications for them.
+These subscriptions consume cluster resources (CRDs, operator Pods, memory) without providing functionality.
+You can remove them from your fork if you do not plan to use them.
+SAW provides no toggle for this at the baseline; editing the fork is the only option.</p>
+</dd>
+<dt class="hdlist1">Defaults ship with known credentials</dt>
+<dd>
+<p>The Keycloak chart creates test users with known passwords (<code>developer</code>/<code>developer</code>, <code>admin</code>/<code>admin</code>, <code>alice</code>/<code>alice</code>, <code>bob</code>/<code>bob</code>), enables self-registration, and sets the PostgreSQL password to <code>keycloak-db-pass</code>.
+These defaults are convenient for a lab but dangerous on any cluster reachable from outside your network.
+See <a href="admin/install-gitops.html" class="xref page">GitOps install</a> and <a href="admin/install-manual.html" class="xref page">manual install</a> for the security warnings, and <a href="user/what-you-can-change.html" class="xref page">what you can change</a> for how users interact with the defaults.</p>
+</dd>
+</dl>
+</div>
+</div>
+</div>
+<nav class="pagination">
+  <span class="prev"><a href="governance.html" class="query-params-link">How governance works</a></span>
+  <span class="next"><a href="admin/prerequisites.html" class="query-params-link">Prerequisites and sizing</a></span>
+</nav>
+</article>
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>  </div>
+</main>
+</div>
+<footer class="footer">
+  <a href="https://demo.redhat.com" target="_blank" class="poweredBy"><p>Powered by</p><div class="labInfo_poweredBy" style="display: block; width: 260px;"><svg class="labInfo_poweredByLogo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1508.5 178.739"><g fill="#111"><path d="M316.6 63.2v-56H342a21.279 21.279 0 0 1 7.8 1.3 18.111 18.111 0 0 1 5.9 3.5 15.577 15.577 0 0 1 5 11.8 15.051 15.051 0 0 1-3.1 9.5 16.836 16.836 0 0 1-8.4 5.8l12.5 24.1h-9.3l-11.6-23H325v23Zm24.7-48.6H325v18.7h16.3q5.25 0 8.1-2.7a8.7 8.7 0 0 0 2.8-6.6 8.7 8.7 0 0 0-2.8-6.6c-1.8-1.9-4.5-2.8-8.1-2.8ZM364.1 42.8a20.674 20.674 0 0 1 1.6-8.2 20.288 20.288 0 0 1 4.3-6.7 19.92 19.92 0 0 1 6.5-4.5 19.718 19.718 0 0 1 8-1.6 18.463 18.463 0 0 1 7.8 1.6 18.677 18.677 0 0 1 6.2 4.5 20.927 20.927 0 0 1 4.1 6.8 23.2 23.2 0 0 1 1.5 8.4v2.3H372a13.822 13.822 0 0 0 4.6 8.4 13.6 13.6 0 0 0 9.1 3.3 15.553 15.553 0 0 0 5.7-1 12.858 12.858 0 0 0 4.6-2.6l5.1 5a25.983 25.983 0 0 1-7.4 4.1 24.69 24.69 0 0 1-8.4 1.3 21.306 21.306 0 0 1-8.4-1.6 22.763 22.763 0 0 1-6.8-4.4 20.788 20.788 0 0 1-4.5-6.7 23.2 23.2 0 0 1-1.5-8.4Zm20.2-14.2a11.527 11.527 0 0 0-8 3 13.046 13.046 0 0 0-4.2 7.8h24.2a13.091 13.091 0 0 0-4.2-7.8 11.106 11.106 0 0 0-7.8-3ZM443.1 63.2v-3.8a19.448 19.448 0 0 1-5.8 3.3 18.924 18.924 0 0 1-6.7 1.2 19.824 19.824 0 0 1-14.6-6.1 22.268 22.268 0 0 1-4.4-6.7 21.812 21.812 0 0 1 0-16.4A20.534 20.534 0 0 1 416 28a19.335 19.335 0 0 1 6.6-4.5 20.334 20.334 0 0 1 8.2-1.6 20.7 20.7 0 0 1 6.6 1 19.415 19.415 0 0 1 5.7 3V7.2l8-1.8v57.8Zm-25.2-20.4a13.718 13.718 0 0 0 4 10.1 13.45 13.45 0 0 0 9.8 4.1 14.956 14.956 0 0 0 6.4-1.3 15.954 15.954 0 0 0 4.9-3.6V33.6a14.988 14.988 0 0 0-4.9-3.5 15.271 15.271 0 0 0-6.4-1.3 13.423 13.423 0 0 0-9.9 4 13.806 13.806 0 0 0-3.9 10ZM478.1 63.2v-56h8.4v24h29.8v-24h8.4v56h-8.4V38.8h-29.8v24.4ZM547.2 64a16.483 16.483 0 0 1-10.8-3.5 11.037 11.037 0 0 1-4.2-8.9 10.375 10.375 0 0 1 4.7-9.2 20.76 20.76 0 0 1 11.8-3.2 27.841 27.841 0 0 1 5.8.6 27.374 27.374 0 0 1 5.3 1.6v-4.3a8.143 8.143 0 0 0-2.6-6.5 11.452 11.452 0 0 0-7.4-2.2 20.788 20.788 0 0 0-6 .9 34.616 34.616 0 0 0-6.6 2.6l-3-6a54.169 54.169 0 0 1 8.4-3.1 33.18 33.18 0 0 1 8.3-1.1c5.2 0 9.3 1.3 12.2 3.8s4.4 6.1 4.4 10.8v27h-7.8v-3.5a19.441 19.441 0 0 1-5.8 3.2 23.54 23.54 0 0 1-6.7 1Zm-7.3-12.6a5.646 5.646 0 0 0 2.6 4.8 11.193 11.193 0 0 0 6.6 1.8 16.256 16.256 0 0 0 5.9-1 14.449 14.449 0 0 0 4.9-2.9V47a19.778 19.778 0 0 0-4.8-1.8 24.933 24.933 0 0 0-5.7-.6 11.859 11.859 0 0 0-6.8 1.8 5.728 5.728 0 0 0-2.7 5ZM580.6 53.2v-24H572v-6.7h8.6V12.1l7.9-1.9v12.3h12v6.7h-12v22.1a5.94 5.94 0 0 0 1.4 4.4c.9.9 2.5 1.3 4.6 1.3a23.637 23.637 0 0 0 3-.2 10.857 10.857 0 0 0 2.8-.8v6.7a19.28 19.28 0 0 1-3.8.9 27.484 27.484 0 0 1-3.8.3c-3.9 0-7-.9-9-2.8-2-1.7-3.1-4.4-3.1-7.9Z"></path></g><path d="M127 90.2c12.5 0 30.6-2.6 30.6-17.5a12.678 12.678 0 0 0-.3-3.4L149.8 37c-1.7-7.1-3.2-10.3-15.7-16.6-9.7-5-30.8-13.1-37.1-13.1-5.8 0-7.5 7.5-14.4 7.5-6.7 0-11.6-5.6-17.9-5.6-6 0-9.9 4.1-12.9 12.5 0 0-8.4 23.7-9.5 27.2a4.216 4.216 0 0 0-.3 1.9c0 9.2 36.3 39.4 85 39.4Zm32.5-11.4c1.7 8.2 1.7 9.1 1.7 10.1 0 14-15.7 21.8-36.4 21.8-46.8 0-87.7-27.4-87.7-45.5a17.535 17.535 0 0 1 1.5-7.3C21.8 58.8 0 61.8 0 81c0 31.5 74.6 70.3 133.7 70.3 45.3 0 56.7-20.5 56.7-36.6-.1-12.8-11-27.3-30.9-35.9Z" fill="#e00"></path><path d="M159.5 78.8c1.7 8.2 1.7 9.1 1.7 10.1 0 14-15.7 21.8-36.4 21.8-46.8 0-87.7-27.4-87.7-45.5a17.535 17.535 0 0 1 1.5-7.3l3.7-9.1a4.877 4.877 0 0 0-.3 2c0 9.2 36.3 39.4 85 39.4 12.5 0 30.6-2.6 30.6-17.5a12.678 12.678 0 0 0-.3-3.4Z"></path><path d="M253.5 158.7a2.22 2.22 0 0 1-2.2-2.2V2.2a2.2 2.2 0 0 1 4.4 0v154.2a2.242 2.242 0 0 1-2.2 2.3Z" fill="#111"></path><text data-name="Demo Platform" transform="translate(1186 149)" fill="#111" font-size="82" font-family="'RedHatDisplay', 'Overpass', overpass, helvetica, arial, sans-serif" font-weight="700"><tspan x="-877.892" y="0">Demo Platform</tspan></text></svg></div></div>
+</footer>
+<script defer src="../_/js/vendor/clipboard.js"></script>
+<script defer src="../_/js/site.js"></script>
+<script defer src="../_/js/vendor/highlight.js"></script>
+<script async src="../_/js/vendor/tabs.js"></script>
+  </body>
+</html>

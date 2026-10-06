@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Install with GitOps :: Secure Agent Workspace Guide</title>
+    <link rel="prev" href="prerequisites.html">
+    <link rel="next" href="install-manual.html">
+    <meta name="description" content="Deploy SAW using the validated pattern GitOps workflow.">
+    <meta name="generator" content="Antora 3.1.15">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@400;500;700&family=Red+Hat+Mono:wght@400;700&family=Red+Hat+Text:wght@400;700&display=swap">
+    <link rel="stylesheet" href="../../_/css/site.css">
+<link rel="stylesheet" href="../../_/css/vendor/tabs.css">
+<link rel="icon" href="../../_/img/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="../../_/img/favicon.ico" type="image/x-icon">
+  </head>
+  <body class="article">
+<a class="skip-link" href="#content">Skip to content</a>
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <span class="navbar-item navbar-logo">
+        <img src="../../_/img/logo-demo-platform.svg" alt="Red Hat Demo Platform" class="navbar-logo-img">
+      </span>
+      <a class="navbar-item site-title" target="_blank" href="../..">Secure Agent Workspace Guide</a>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="saw-guide" data-version="">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="../index.html" class=" query-params-link">Secure Agent Workspace</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Concepts</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../index.html">What SAW is, and why</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../architecture.html">Architecture</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../governance.html">How governance works</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../benefits-challenges.html">Benefits and challenges</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Admin guide</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="prerequisites.html">Prerequisites and sizing</a>
+  </li>
+  <li class="nav-item is-current-page" data-depth="1">
+    <a class="nav-link" href="install-gitops.html">Install with GitOps</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="install-manual.html">Install manually</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="onboard-users.html">Onboard users</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="day2.html">Day 2 operations</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="test-troubleshoot.html">Test and troubleshoot</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">User guide</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../user/access.html">What your admin hands you</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../user/connect.html">Log in and connect</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../user/sandboxes.html">Work with sandboxes</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../user/what-you-can-change.html">What you can and cannot change</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Reference</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../reference/charts.html">Chart values</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../reference/bom.html">BOM and profiles</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../reference/make-targets.html">Make targets</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../reference/ports-namespaces.html">Ports, Routes, and namespaces</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Experimental</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../experimental.html">Experimental and upcoming features</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+  </div>
+  <ul class="components">
+    <li class="component is-current">
+      <span class="title">Secure Agent Workspace</span>
+      <ul class="versions">
+        <li class="version is-current">
+          <a href="../index.html">default</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>    </div>
+  </aside>
+</div>
+<main class="article" id="content">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../index.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../index.html">Secure Agent Workspace</a></li>
+    <li>Admin guide</li>
+    <li><a href="install-gitops.html">Install with GitOps</a></li>
+  </ul>
+</nav>
+</div>
+  <div class="content">
+<article class="doc">
+<h1 class="page">Install with GitOps</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="title">Baseline</div>
+<div class="paragraph">
+<p>This guide describes SAW at commit <a href="https://github.com/validatedpatterns-sandbox/secure-agent-workspace/commit/4768f02d4415449de74403df62bad0c03630448e" target="_blank" rel="noopener"><code>4768f02</code></a> (2026-10-02), which deploys OpenShell 0.1.2-rhaiv.0.
+Later SAW commits may rename targets or change defaults.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>The GitOps path uses the <a href="https://validatedpatterns.io">validated patterns framework</a> to deploy SAW in a single command.
+The framework reads <code>values-global.yaml</code> and <code>values-prod.yaml</code> from your repository, loads your secrets into Vault, and creates Argo CD Applications for every SAW component.
+From that point on, Argo CD keeps the cluster in sync with your fork: push a change, and the cluster converges to match.</p>
+</div>
+<div class="paragraph">
+<p>Before you begin, confirm that every item on the <a href="prerequisites.html" class="xref page">Prerequisites and sizing</a> page is in place.
+You need cluster-admin access, the CLI tools listed there, and enough capacity for at least one user VM plus the shared-services overhead.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="steps"><a class="anchor" href="#steps"></a>Steps</h2>
+<div class="sectionbody">
+<div class="olist arabic">
+<ol class="arabic" start="1">
+<li>
+<p><strong>Fork and clone the repository.</strong></p>
+<div class="paragraph">
+<p>Fork <a href="https://github.com/validatedpatterns-sandbox/secure-agent-workspace" target="_blank" rel="noopener"><code>validatedpatterns-sandbox/secure-agent-workspace</code></a> to your own GitHub organization, then clone your fork.
+The validated patterns framework pushes the current branch to the remote, so the repository must be one you can push to.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">git clone https://github.com/&lt;your-org&gt;/secure-agent-workspace.git
+cd secure-agent-workspace</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p><strong>Check out the baseline commit.</strong></p>
+<div class="paragraph">
+<p>This guide is written against a specific SAW commit.
+Checking it out ensures that every command on this page matches the code you are running.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">git checkout 4768f02d4415449de74403df62bad0c03630448e</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p><strong>Log in to OpenShift with cluster-admin.</strong></p>
+<div class="paragraph">
+<p>The install target creates namespaces, operator subscriptions, and cluster-scoped resources, all of which require cluster-admin privileges.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">oc login --server=https://api.&lt;cluster&gt;:6443 -u &lt;user&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Check: Confirm that you are logged in and that <code>whoami</code> returns a cluster-admin user.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">oc whoami</code></pre>
+</div>
+</div>
+</li>
+</ol>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><strong>Generate SSH keys.</strong></p>
+<div class="paragraph">
+<p>The <code>make generate-keys</code> target creates an Ed25519 keypair under <code>~/.generated-ssh-keys/sandbox-ssh</code>.
+SAW injects the public key into every user VM so that <code>virtctl ssh</code> works without a password.
+The target also copies <code>values-secret.yaml.template</code> to <code>~/values-secret.yaml</code> if no secrets file exists yet.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">make generate-keys</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Check: Confirm that the keypair exists.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">ls -l ~/.generated-ssh-keys/sandbox-ssh*</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p><strong>Configure secrets.</strong></p>
+<div class="paragraph">
+<p>The <code>make generate-keys</code> target already copied <code>values-secret.yaml.template</code> to <code>~/values-secret.yaml</code>.
+If the file does not exist, copy it manually:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">cp values-secret.yaml.template ~/values-secret.yaml</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Edit <code>~/values-secret.yaml</code> and provide values for each group:</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1"><code>ssh</code></dt>
+<dd>
+<p>Already populated by <code>make generate-keys</code>.
+The <code>private_key</code> and <code>public_key</code> fields point at <code>~/.generated-ssh-keys/sandbox-ssh</code> and its <code>.pub</code> counterpart.</p>
+</dd>
+<dt class="hdlist1"><code>inference</code></dt>
+<dd>
+<p>Set <code>provider</code>, <code>model</code>, and the path to your API key file.
+The default profile expects an NVIDIA key at <code>~/.nvidia-api-key</code> with <code>provider: build</code> and <code>model: nvidia/nemotron-3-super-120b-a12b</code>.
+Change the provider and model if you use a different inference backend (see the commented examples in the template).</p>
+</dd>
+<dt class="hdlist1"><code>web-search</code></dt>
+<dd>
+<p>Set <code>provider</code> and the path to your API key file.
+The default profile expects a Brave Search key at <code>~/.brave-api-key</code> with <code>provider: brave</code>.</p>
+<div class="paragraph">
+<p>The template also shows how to add per-user Vault prefixes.
+Each prefix goes under <code>vaultPrefixes</code> with a path relative to <code>secret/data</code>, for example <code>hub/saw-alice</code>, and lets one user override the shared inference or web-search key.</p>
+</div>
+</dd>
+</dl>
+</div>
+</li>
+<li>
+<p><strong>Edit the user list.</strong></p>
+<div class="paragraph">
+<p>Open <code>overrides/saw-users.yaml</code> and add or remove entries.
+Each entry needs a <code>name</code> and a list of <code>profiles</code>.
+The repository ships with a single user:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-yaml hljs" data-lang="yaml">users:
+  - name: alice
+    profiles:
+      - data-science</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Argo CD creates one namespace (<code>saw-&lt;name&gt;</code>) and three Application objects per user.
+Removing an entry prunes that user&#8217;s Applications.</p>
+</div>
+<div class="paragraph">
+<p>Check: Confirm the file is valid YAML.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">yq '.' overrides/saw-users.yaml</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p><strong>Commit and push to your fork.</strong></p>
+<div class="paragraph">
+<p>The validated patterns framework reads from the remote branch, not from your working tree.
+Any local changes (your edits to <code>overrides/saw-users.yaml</code> and any other files you changed) must be pushed before the install.
+<code>pattern.sh</code> forwards <code>TARGET_BRANCH</code> and <code>TARGET_ORIGIN</code> to the utility container, and the deploying branch must exist on the remote.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">git add overrides/saw-users.yaml
+git commit -m "Configure SAW for my cluster"
+git push origin HEAD</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p><strong>Copy pre-built images to the cluster.</strong></p>
+<div class="paragraph">
+<p>The golden VM image that every user VM clones its root disk from is hosted on <code>quay.io/rh-ai-quickstart</code>.
+<code>make copy-images</code> mirrors it into the cluster&#8217;s internal registry so that DataVolumes can reference it locally.
+The target asks quay for the tag in <code>OPENSHELL_VERSION</code>, then for the same tag with a <code>v</code> prefix, and otherwise falls back to <code>latest</code>.
+It stores the image it finds under the <code>OPENSHELL_VERSION</code> tag and also tags that image <code>latest</code>.
+This takes about five minutes.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">make copy-images</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Check: Confirm the ImageStream exists in the <code>openshell-agents</code> namespace.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">oc get imagestream -n openshell-agents</code></pre>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="title">The mirrored image has no bundle verifier</div>
+<div class="paragraph">
+<p>At this baseline, quay has no golden image under the 0.0.x tag in <code>OPENSHELL_VERSION</code> or its <code>v</code>-prefixed form, so <code>make copy-images</code> mirrors <code>latest</code>.
+That image was built before SAW added the installer bundle verifier, <code>verify-bundle</code>.
+On boot, <code>saw-stage-installer</code> logs <code>verify-bundle is not in this golden image; staging without verification</code>.
+In the default <code>warn</code> signing mode the VM installs anyway, and in <code>enforce</code> mode the install stops.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock caution">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-caution" title="Caution"></i>
+</td>
+<td class="content">
+<div class="title">Building the golden image deletes the current one</div>
+<div class="paragraph">
+<p>To get the bundle verifier, build the golden image from the baseline with <code>make build-gateway-podman</code> instead of running <code>make copy-images</code>.
+The target first deletes the golden DataVolume <code>openshell-gateway-golden</code>, its PVC, the <code>openshell-gateway</code> DataSource, the earlier builds of the image, and the <code>openshell-gateway</code> ImageStream.
+It then builds the image in the cluster, creates the golden DataVolume and DataSource from it, and pushes the image to <code>QUAY_REPO</code> as <code>latest</code> and as the <code>OPENSHELL_VERSION</code> tag.
+The default <code>QUAY_REPO</code> is <code>quay.io/rh-ai-quickstart</code>, so log in to a registry where you can push images and set <code>QUAY_REPO</code> to your organization there:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">podman login quay.io
+make build-gateway-podman QUAY_REPO=quay.io/&lt;your-org&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Even a golden image built this way records the bundle as <code>unsigned</code> at this baseline, because the chart ships no signed <code>bundle.sigstore.json</code>.
+Verification also needs your public key in <code>/etc/saw/trust</code>, which the image build does not add.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p><strong>Run the install.</strong></p>
+<div class="paragraph">
+<p><code>pattern.sh</code> launches <code>make install</code> inside the validated patterns utility container (<code>quay.io/validatedpatterns/utility-container</code>).
+It recommends <code>podman</code> newer than 4.3.0 and refuses to run with versions 1.5 and 1.6.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">./pattern.sh make install</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The command takes several minutes.
+It installs the Argo CD operator (if not already present) and loads your secrets into Vault.
+Then it creates the seven Argo CD Applications defined in <code>values-prod.yaml</code>.</p>
+</div>
+<div class="paragraph">
+<p>Check: After the command finishes, confirm that all seven Applications appear and are synced.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">oc get applications.argoproj.io -n vp-gitops</code></pre>
+</div>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="what-argo-cd-creates"><a class="anchor" href="#what-argo-cd-creates"></a>What Argo CD creates</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The framework creates seven Argo CD Applications plus operator subscriptions for ESO, OpenShift Virtualization, Red Hat build of Keycloak, Red Hat Developer Hub, and OpenShift AI.
+The seven Applications are:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><code>openshift-external-secrets</code> (namespace <code>external-secrets</code>)</p>
+</li>
+<li>
+<p><code>vault</code> (namespace <code>vault</code>, chart <code>hashicorp-vault</code>)</p>
+</li>
+<li>
+<p><code>openshift-cnv</code> (namespace <code>openshift-cnv</code>)</p>
+</li>
+<li>
+<p><code>openshell-keycloak</code> (namespace <code>saw-keycloak</code>)</p>
+</li>
+<li>
+<p><code>saw-users</code> (namespace <code>openshell-agents</code>, reads <code>overrides/saw-users.yaml</code>)</p>
+</li>
+<li>
+<p><code>governance-policy</code> (namespace <code>openshell-agents</code>)</p>
+</li>
+<li>
+<p><code>governance-interceptor</code> (namespace <code>openshell-agents</code>)</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>Each user entry in <code>overrides/saw-users.yaml</code> causes the <code>saw-users</code> Application to create three child Applications in the Argo CD namespace.
+Those children are <code>saw-&lt;name&gt;-secrets</code>, <code>saw-&lt;name&gt;-bom</code>, and <code>saw-&lt;name&gt;</code> (the VM).
+For the shipped default (<code>alice</code>), you should see a VirtualMachine named <code>alice</code> in namespace <code>saw-alice</code>.</p>
+</div>
+<div class="paragraph">
+<p>Check: Verify that the user VM exists and is running.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">oc get vm -A</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="vault"><a class="anchor" href="#vault"></a>Vault</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The <code>vault</code> Application deploys the <code>hashicorp-vault</code> chart (version <code>0.1.*</code>) into the <code>vault</code> namespace.
+The chart itself is provided by the validated patterns framework, not by the SAW repository.
+Vault configuration details such as dev mode, storage backend, persistence, and unsealing strategy are managed by the framework.
+See the <a href="https://validatedpatterns.io/learn/secrets-management-in-the-validated-patterns-framework/" target="_blank" rel="noopener">validated patterns secrets management documentation</a> for how the framework configures and unseals Vault.</p>
+</div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+<div class="title">Change the defaults before exposing the cluster</div>
+<div class="paragraph">
+<p>The <code>openshell-keycloak</code> chart ships with test defaults that are not safe for production.</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">Test users with passwords equal to their names</dt>
+<dd>
+<p>The <code>testUsers</code> list in <code>charts/openshell-keycloak/values.yaml</code> creates four users: <code>developer</code>/<code>developer</code>, <code>admin</code>/<code>admin</code>, <code>alice</code>/<code>alice</code>, and <code>bob</code>/<code>bob</code>.
+To change these passwords, override <code>keycloak.testUsers</code> in your fork&#8217;s <code>charts/openshell-keycloak/values.yaml</code> or remove the test users entirely and create accounts through the Keycloak admin console.</p>
+</dd>
+<dt class="hdlist1">Self-registration enabled</dt>
+<dd>
+<p><code>registrationAllowed: true</code> lets anyone with access to the Keycloak login page create their own account.
+Set <code>keycloak.registrationAllowed</code> to <code>false</code> in <code>charts/openshell-keycloak/values.yaml</code> before you expose the cluster.</p>
+</dd>
+<dt class="hdlist1">PostgreSQL password</dt>
+<dd>
+<p>The database password for Keycloak&#8217;s PostgreSQL instance defaults to <code>keycloak-db-pass</code> (<code>postgres.password</code> in <code>charts/openshell-keycloak/values.yaml</code>).
+Override <code>postgres.password</code> in your fork before deploying.</p>
+</dd>
+</dl>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="next-step"><a class="anchor" href="#next-step"></a>Next step</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Once all Applications are synced and the user VM is running, proceed to <a href="onboard-users.html" class="xref page">Onboard users</a> to hand over access credentials to your users.</p>
+</div>
+</div>
+</div>
+<nav class="pagination">
+  <span class="prev"><a href="prerequisites.html" class="query-params-link">Prerequisites and sizing</a></span>
+  <span class="next"><a href="install-manual.html" class="query-params-link">Install manually</a></span>
+</nav>
+</article>
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>  </div>
+</main>
+</div>
+<footer class="footer">
+  <a href="https://demo.redhat.com" target="_blank" class="poweredBy"><p>Powered by</p><div class="labInfo_poweredBy" style="display: block; width: 260px;"><svg class="labInfo_poweredByLogo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1508.5 178.739"><g fill="#111"><path d="M316.6 63.2v-56H342a21.279 21.279 0 0 1 7.8 1.3 18.111 18.111 0 0 1 5.9 3.5 15.577 15.577 0 0 1 5 11.8 15.051 15.051 0 0 1-3.1 9.5 16.836 16.836 0 0 1-8.4 5.8l12.5 24.1h-9.3l-11.6-23H325v23Zm24.7-48.6H325v18.7h16.3q5.25 0 8.1-2.7a8.7 8.7 0 0 0 2.8-6.6 8.7 8.7 0 0 0-2.8-6.6c-1.8-1.9-4.5-2.8-8.1-2.8ZM364.1 42.8a20.674 20.674 0 0 1 1.6-8.2 20.288 20.288 0 0 1 4.3-6.7 19.92 19.92 0 0 1 6.5-4.5 19.718 19.718 0 0 1 8-1.6 18.463 18.463 0 0 1 7.8 1.6 18.677 18.677 0 0 1 6.2 4.5 20.927 20.927 0 0 1 4.1 6.8 23.2 23.2 0 0 1 1.5 8.4v2.3H372a13.822 13.822 0 0 0 4.6 8.4 13.6 13.6 0 0 0 9.1 3.3 15.553 15.553 0 0 0 5.7-1 12.858 12.858 0 0 0 4.6-2.6l5.1 5a25.983 25.983 0 0 1-7.4 4.1 24.69 24.69 0 0 1-8.4 1.3 21.306 21.306 0 0 1-8.4-1.6 22.763 22.763 0 0 1-6.8-4.4 20.788 20.788 0 0 1-4.5-6.7 23.2 23.2 0 0 1-1.5-8.4Zm20.2-14.2a11.527 11.527 0 0 0-8 3 13.046 13.046 0 0 0-4.2 7.8h24.2a13.091 13.091 0 0 0-4.2-7.8 11.106 11.106 0 0 0-7.8-3ZM443.1 63.2v-3.8a19.448 19.448 0 0 1-5.8 3.3 18.924 18.924 0 0 1-6.7 1.2 19.824 19.824 0 0 1-14.6-6.1 22.268 22.268 0 0 1-4.4-6.7 21.812 21.812 0 0 1 0-16.4A20.534 20.534 0 0 1 416 28a19.335 19.335 0 0 1 6.6-4.5 20.334 20.334 0 0 1 8.2-1.6 20.7 20.7 0 0 1 6.6 1 19.415 19.415 0 0 1 5.7 3V7.2l8-1.8v57.8Zm-25.2-20.4a13.718 13.718 0 0 0 4 10.1 13.45 13.45 0 0 0 9.8 4.1 14.956 14.956 0 0 0 6.4-1.3 15.954 15.954 0 0 0 4.9-3.6V33.6a14.988 14.988 0 0 0-4.9-3.5 15.271 15.271 0 0 0-6.4-1.3 13.423 13.423 0 0 0-9.9 4 13.806 13.806 0 0 0-3.9 10ZM478.1 63.2v-56h8.4v24h29.8v-24h8.4v56h-8.4V38.8h-29.8v24.4ZM547.2 64a16.483 16.483 0 0 1-10.8-3.5 11.037 11.037 0 0 1-4.2-8.9 10.375 10.375 0 0 1 4.7-9.2 20.76 20.76 0 0 1 11.8-3.2 27.841 27.841 0 0 1 5.8.6 27.374 27.374 0 0 1 5.3 1.6v-4.3a8.143 8.143 0 0 0-2.6-6.5 11.452 11.452 0 0 0-7.4-2.2 20.788 20.788 0 0 0-6 .9 34.616 34.616 0 0 0-6.6 2.6l-3-6a54.169 54.169 0 0 1 8.4-3.1 33.18 33.18 0 0 1 8.3-1.1c5.2 0 9.3 1.3 12.2 3.8s4.4 6.1 4.4 10.8v27h-7.8v-3.5a19.441 19.441 0 0 1-5.8 3.2 23.54 23.54 0 0 1-6.7 1Zm-7.3-12.6a5.646 5.646 0 0 0 2.6 4.8 11.193 11.193 0 0 0 6.6 1.8 16.256 16.256 0 0 0 5.9-1 14.449 14.449 0 0 0 4.9-2.9V47a19.778 19.778 0 0 0-4.8-1.8 24.933 24.933 0 0 0-5.7-.6 11.859 11.859 0 0 0-6.8 1.8 5.728 5.728 0 0 0-2.7 5ZM580.6 53.2v-24H572v-6.7h8.6V12.1l7.9-1.9v12.3h12v6.7h-12v22.1a5.94 5.94 0 0 0 1.4 4.4c.9.9 2.5 1.3 4.6 1.3a23.637 23.637 0 0 0 3-.2 10.857 10.857 0 0 0 2.8-.8v6.7a19.28 19.28 0 0 1-3.8.9 27.484 27.484 0 0 1-3.8.3c-3.9 0-7-.9-9-2.8-2-1.7-3.1-4.4-3.1-7.9Z"></path></g><path d="M127 90.2c12.5 0 30.6-2.6 30.6-17.5a12.678 12.678 0 0 0-.3-3.4L149.8 37c-1.7-7.1-3.2-10.3-15.7-16.6-9.7-5-30.8-13.1-37.1-13.1-5.8 0-7.5 7.5-14.4 7.5-6.7 0-11.6-5.6-17.9-5.6-6 0-9.9 4.1-12.9 12.5 0 0-8.4 23.7-9.5 27.2a4.216 4.216 0 0 0-.3 1.9c0 9.2 36.3 39.4 85 39.4Zm32.5-11.4c1.7 8.2 1.7 9.1 1.7 10.1 0 14-15.7 21.8-36.4 21.8-46.8 0-87.7-27.4-87.7-45.5a17.535 17.535 0 0 1 1.5-7.3C21.8 58.8 0 61.8 0 81c0 31.5 74.6 70.3 133.7 70.3 45.3 0 56.7-20.5 56.7-36.6-.1-12.8-11-27.3-30.9-35.9Z" fill="#e00"></path><path d="M159.5 78.8c1.7 8.2 1.7 9.1 1.7 10.1 0 14-15.7 21.8-36.4 21.8-46.8 0-87.7-27.4-87.7-45.5a17.535 17.535 0 0 1 1.5-7.3l3.7-9.1a4.877 4.877 0 0 0-.3 2c0 9.2 36.3 39.4 85 39.4 12.5 0 30.6-2.6 30.6-17.5a12.678 12.678 0 0 0-.3-3.4Z"></path><path d="M253.5 158.7a2.22 2.22 0 0 1-2.2-2.2V2.2a2.2 2.2 0 0 1 4.4 0v154.2a2.242 2.242 0 0 1-2.2 2.3Z" fill="#111"></path><text data-name="Demo Platform" transform="translate(1186 149)" fill="#111" font-size="82" font-family="'RedHatDisplay', 'Overpass', overpass, helvetica, arial, sans-serif" font-weight="700"><tspan x="-877.892" y="0">Demo Platform</tspan></text></svg></div></div>
+</footer>
+<script defer src="../../_/js/vendor/clipboard.js"></script>
+<script defer src="../../_/js/site.js"></script>
+<script defer src="../../_/js/vendor/highlight.js"></script>
+<script async src="../../_/js/vendor/tabs.js"></script>
+  </body>
+</html>

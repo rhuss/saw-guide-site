@@ -1,0 +1,738 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Day 2 operations :: Secure Agent Workspace Guide</title>
+    <link rel="prev" href="onboard-users.html">
+    <link rel="next" href="test-troubleshoot.html">
+    <meta name="description" content="Change governance, update BOMs, manage signing and pruning, remove users, or uninstall the pattern on a running SAW installation.">
+    <meta name="generator" content="Antora 3.1.15">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@400;500;700&family=Red+Hat+Mono:wght@400;700&family=Red+Hat+Text:wght@400;700&display=swap">
+    <link rel="stylesheet" href="../../_/css/site.css">
+<link rel="stylesheet" href="../../_/css/vendor/tabs.css">
+<link rel="icon" href="../../_/img/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="../../_/img/favicon.ico" type="image/x-icon">
+  </head>
+  <body class="article">
+<a class="skip-link" href="#content">Skip to content</a>
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <span class="navbar-item navbar-logo">
+        <img src="../../_/img/logo-demo-platform.svg" alt="Red Hat Demo Platform" class="navbar-logo-img">
+      </span>
+      <a class="navbar-item site-title" target="_blank" href="../..">Secure Agent Workspace Guide</a>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="saw-guide" data-version="">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="../index.html" class=" query-params-link">Secure Agent Workspace</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Concepts</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../index.html">What SAW is, and why</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../architecture.html">Architecture</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../governance.html">How governance works</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../benefits-challenges.html">Benefits and challenges</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Admin guide</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="prerequisites.html">Prerequisites and sizing</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="install-gitops.html">Install with GitOps</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="install-manual.html">Install manually</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="onboard-users.html">Onboard users</a>
+  </li>
+  <li class="nav-item is-current-page" data-depth="1">
+    <a class="nav-link" href="day2.html">Day 2 operations</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="test-troubleshoot.html">Test and troubleshoot</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">User guide</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../user/access.html">What your admin hands you</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../user/connect.html">Log in and connect</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../user/sandboxes.html">Work with sandboxes</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../user/what-you-can-change.html">What you can and cannot change</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Reference</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../reference/charts.html">Chart values</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../reference/bom.html">BOM and profiles</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../reference/make-targets.html">Make targets</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../reference/ports-namespaces.html">Ports, Routes, and namespaces</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Experimental</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../experimental.html">Experimental and upcoming features</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+  </div>
+  <ul class="components">
+    <li class="component is-current">
+      <span class="title">Secure Agent Workspace</span>
+      <ul class="versions">
+        <li class="version is-current">
+          <a href="../index.html">default</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>    </div>
+  </aside>
+</div>
+<main class="article" id="content">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../index.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../index.html">Secure Agent Workspace</a></li>
+    <li>Admin guide</li>
+    <li><a href="day2.html">Day 2 operations</a></li>
+  </ul>
+</nav>
+</div>
+  <div class="content">
+<article class="doc">
+<h1 class="page">Day 2 operations</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>Once SAW is running, you&#8217;ll need to adjust governance profiles, rotate provider credentials, upgrade OpenShell versions, or remove users.
+Every change in this guide follows the same pattern: edit a Helm value or a file in Git, sync the chart, and let the in-guest installer handle the rest.
+The lifecycle diagram below shows the two update paths (default restart and live reconcile) that determine how quickly a change takes effect.</p>
+</div>
+<div class="imageblock expand">
+<div class="content">
+<img src="../_images/04-vm-lifecycle.svg" alt="VM lifecycle diagram showing boot sequence, default update path with restart, and live reconcile path with saw-reconcile">
+</div>
+<div class="title">Figure 1. The VM lifecycle: boot sequence (top), default update path with VM restart (middle), and live reconcile with <code>vm.liveInputs</code> (bottom).</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="change-governance-profiles"><a class="anchor" href="#change-governance-profiles"></a>Change governance profiles</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The governance interceptor reads provider profiles and <code>policy.yaml</code> from ConfigMap volumes.
+When you push a change to the <code>governance-policy</code> chart in Git, Argo CD syncs the updated ConfigMap.
+Kubelet propagates the new files into the interceptor Pod, typically within about 60 seconds.
+The interceptor picks them up on the next evaluation without a restart.</p>
+</div>
+<div class="paragraph">
+<p>For the full governance flow, see <a href="../governance.html" class="xref page">How governance works</a>.</p>
+</div>
+<div class="sect2">
+<h3 id="change-the-sandbox-policy"><a class="anchor" href="#change-the-sandbox-policy"></a>Change the sandbox policy</h3>
+<div class="paragraph">
+<p>Updating <code>policy.yaml</code> affects only new sandboxes.
+Running sandboxes keep their signed policy revision until they are destroyed and recreated.
+The interceptor&#8217;s reload push targets <code>127.0.0.1</code> inside its own Pod and never reaches the user gateways.</p>
+</div>
+<div class="paragraph">
+<p>To bring existing sandboxes onto a new governance-policy:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Edit <code>policy.yaml</code> in the <code>governance-policy</code> chart and push to Git.</p>
+</li>
+<li>
+<p>Wait for Argo CD to sync (about 60 seconds for the ConfigMap to propagate).</p>
+</li>
+<li>
+<p>Delete the sandbox you want to update and let the installer recreate it on the next <code>apply</code> run.
+The installer checks each sandbox&#8217;s state: a missing sandbox is created with the current policy, while a running sandbox is left in place.</p>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+Deleting a sandbox also deletes its <code>/sandbox</code> volume, <code>openshell-sandbox-&lt;sandbox-id&gt;-workspace</code>, with all files in it.
+Copy out the files you want to keep before you delete the sandbox, as the row on a sandbox in <code>Error</code> in <a href="test-troubleshoot.html#troubleshooting" class="xref page">Troubleshooting</a> describes.
+</td>
+</tr>
+</table>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">openshell sandbox delete &lt;sandbox-name&gt; --workspace &lt;workspace&gt;</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Restart the VM so that <code>saw-apply</code> recreates the missing sandbox on boot:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">make openshell-saw-restart OPENSHELL_SAW_NAME=&lt;name&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>With <code>vm.liveInputs</code>, <code>saw-reconcile</code> does not detect a governance-only change because the user&#8217;s own input hashes (installer, profiles, secrets) have not changed.
+A VM restart is still required.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>Check: The new sandbox shows the updated policy fields in <code>openshell sandbox get &lt;name&gt;</code>.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="change-a-users-bom"><a class="anchor" href="#change-a-users-bom"></a>Change a user&#8217;s BOM</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>A BOM change (new OpenShell version, different component digests) updates the installer ConfigMap.</p>
+</div>
+<div class="admonitionblock caution">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-caution" title="Caution"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>With the default settings (<code>vm.liveInputs: false</code>), a change to the installer ConfigMap (which includes the BOM) or the cloud-init Secret updates a checksum annotation on the VM template.
+The running VM doesn&#8217;t pick up the new inputs until it restarts.
+The restart, which <code>make openshell-saw-restart</code> performs with <code>virtctl restart</code>, interrupts all running sandboxes for that user.
+Provider Secret changes are not checksummed: without <code>vm.liveInputs</code>, a Secret change is picked up only at the next boot; with <code>vm.liveInputs</code>, <code>saw-reconcile</code> detects it.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Change the <code>bom:</code> block in the chart values to the new versions and digests.
+Tags are refused at render time and by the installer.</p>
+</li>
+<li>
+<p>Sync the chart (Argo CD sync, or <code>helm upgrade</code> on the manual path).</p>
+</li>
+<li>
+<p>Restart the VM so it picks up the new disks:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">make openshell-saw-restart OPENSHELL_SAW_NAME=&lt;name&gt;</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>On boot, <code>saw-install</code> pulls only the changed components by digest, installs them, and restarts the gateway if a binary or its config changed.
+<code>saw-apply</code> then reconciles workspaces, providers, and sandboxes.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>Check: <code>make openshell-saw-status OPENSHELL_SAW_NAME=&lt;name&gt;</code> shows the new component versions and <code>ready: true</code>.</p>
+</div>
+<div class="sect2">
+<h3 id="hot-reconcile-with-vm-liveinputs"><a class="anchor" href="#hot-reconcile-with-vm-liveinputs"></a>Hot reconcile with vm.liveInputs</h3>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="title">Experimental feature</div>
+<div class="paragraph">
+<p>Hot reconcile with vm.liveInputs is an experimental feature.
+It is part of SAW <code>main</code> at the baseline commit but is disabled by default, and its behavior may change.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Setting <code>vm.liveInputs: true</code> replaces the iso9660 disks with virtiofs mounts.
+Changes to the installer ConfigMap, profiles, and provider Secrets become visible inside the VM without a restart.</p>
+</div>
+<div class="paragraph">
+<p>Turning the flag on requires recreating the VM because cloud-init writes the reconcile units only on first boot.
+Adding or removing an entry in <code>additionalProviderSecrets</code> also requires a restart even with live inputs, because it changes the VM template&#8217;s <code>filesystems</code> list.</p>
+</div>
+<div class="paragraph">
+<p>When the guest detects a change, <code>saw-reconcile</code> runs:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>A path unit (<code>saw-inputs.path</code>) watches <code>/run/saw/installer</code>, <code>/run/saw/profiles</code>, and <code>/run/saw/secrets</code>.
+A 60-second timer (<code>saw-inputs.timer</code>) is the fallback.</p>
+</li>
+<li>
+<p>The reconcile script debounces for 10 seconds so that a single Helm upgrade that rewrites several files becomes one run.</p>
+</li>
+<li>
+<p>If the installer tree changed (BOM or gateway config), reconcile runs <code>install</code> then <code>apply</code>.
+If only profiles or Secrets changed, it runs <code>apply</code> only.</p>
+</li>
+<li>
+<p>On failure, the same input hash is not retried for 300 seconds (<code>SAW_RECONCILE_BACKOFF</code>).
+A new input change resets the backoff immediately.</p>
+</li>
+<li>
+<p>All units serialize on <code>/run/saw/lock</code>, so reconcile never overlaps with the boot-time <code>saw-install</code> or <code>saw-apply</code>.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Check: <code>make openshell-saw-status OPENSHELL_SAW_NAME=&lt;name&gt;</code> shows <code>inputs.upToDate: true</code> after the reconcile finishes.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="signing-modes"><a class="anchor" href="#signing-modes"></a>Signing modes</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The <code>signing-mode</code> setting (<code>signing.mode</code> in the chart values) controls how the installer verifies component images and the installer bundle.
+Three modes are available:</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1"><code>off</code></dt>
+<dd>
+<p>No signature checks.
+The installer pulls and installs components without verification.</p>
+</dd>
+<dt class="hdlist1"><code>warn</code> (default)</dt>
+<dd>
+<p>The installer checks signatures and logs a warning for unsigned or failed components.
+Installation proceeds regardless.</p>
+</dd>
+<dt class="hdlist1"><code>enforce</code></dt>
+<dd>
+<p>The installer refuses to install any component that fails its signature check.
+<code>enforce</code> also requires <code>signing.trustKeys</code> or a keyless identity to be configured.</p>
+</dd>
+</dl>
+</div>
+<div class="paragraph">
+<p>The effective mode is the stricter of the chart value and a floor the golden image can pin at <code>/etc/saw/signing-mode</code>.
+This floor prevents a namespace editor from downgrading <code>enforce</code> to <code>off</code> by editing the installer ConfigMap.</p>
+</div>
+<div class="paragraph">
+<p>Keyless signing (<code>signing.identity</code> and <code>signing.issuer</code>) is accepted as a valid BOM shape but always fails verification at the baseline.
+Podman&#8217;s <code>policy.json</code> cannot match a Fulcio identity by the <code>https://</code> URI format that the BOM validation requires.
+A component configured with keyless signing behaves like one with no signer: <code>warn</code> records it unsigned, <code>enforce</code> fails it.
+Use <code>signing.trustKeys</code> with a <code>keyRef</code> until keyless support is available.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="pruning"><a class="anchor" href="#pruning"></a>Pruning</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>When you remove an object from a SAW-BOM profile (a workspace, provider, or sandbox), the installer&#8217;s prune step decides what happens to the corresponding object in the gateway.
+The <code>prune</code> settings in the chart values control this behavior:</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1"><code>prune.mode</code></dt>
+<dd>
+<div class="dlist">
+<dl>
+<dt class="hdlist1"><code>off</code></dt>
+<dd>
+<p>No pruning.
+Removed objects stay in the gateway.</p>
+</dd>
+<dt class="hdlist1"><code>report</code> (default)</dt>
+<dd>
+<p>The installer logs what it would delete but removes nothing.</p>
+</dd>
+<dt class="hdlist1"><code>on</code></dt>
+<dd>
+<p>The installer deletes objects that no longer appear in the profile.</p>
+</dd>
+</dl>
+</div>
+</dd>
+<dt class="hdlist1"><code>prune.sandboxes</code></dt>
+<dd>
+<p>Defaults to <code>false</code>.
+Even with <code>prune.mode: on</code>, sandboxes are kept unless this flag is <code>true</code>, because sandboxes hold user work.</p>
+</dd>
+</dl>
+</div>
+<div class="paragraph">
+<p>Objects the installer never deletes, regardless of mode:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>The <code>default</code> workspace.</p>
+</li>
+<li>
+<p>Any workspace, sandbox, or provider created by hand.
+The installer prunes only objects recorded in its ledger, <code>/var/lib/saw/user/managed.json</code>.
+It also labels the workspaces and sandboxes it creates <code>saw.redhat.com/managed=true</code>, and prune keeps such an object when the label is missing.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The first successful <code>apply</code> adopts whatever already matches the current profiles and deletes nothing.
+Deletion order is: sandboxes, providers, provider profiles, then workspaces.
+A workspace is deleted only when it is empty afterwards.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="update-the-golden-image"><a class="anchor" href="#update-the-golden-image"></a>Update the golden image</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Every user VM clones its root disk from the golden image, the <code>openshell-gateway</code> VM image.
+<code>make copy-images</code> mirrors that image from <code>QUAY_REPO</code> (default <code>quay.io/rh-ai-quickstart</code>) into the internal registry in <code>openshell-agents</code> and tags it with <code>OPENSHELL_VERSION</code> and <code>latest</code>.
+On SAW <code>main</code>, <code>OPENSHELL_VERSION</code> still names a 0.0.x tag while the BOM installs OpenShell <code>0.1.2-rhaiv.0</code>.
+That&#8217;s expected, because the tag names the golden image build, not the OpenShell release the VMs run.
+The in-guest installer always installs OpenShell from the BOM.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Mirror the new image into the cluster&#8217;s internal registry:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">make copy-images</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>To mirror a different tag, add <code>OPENSHELL_VERSION=&lt;tag&gt;</code>.
+If quay has no image with that tag, the target falls back to the <code>v</code>-prefixed tag and then to <code>latest</code>, and still stores the result under the tag you asked for.
+At this baseline the default tag takes that fallback, and the <code>latest</code> image on quay predates the installer bundle verifier <code>verify-bundle</code>.</p>
+</div>
+<div class="paragraph">
+<p>Check: <code>oc get imagestream openshell-gateway -n openshell-agents</code> lists the mirrored tag and <code>latest</code>.</p>
+</div>
+</li>
+<li>
+<p>Make new VMs clone the mirrored image.</p>
+<div class="paragraph">
+<p>Mirroring a new image alone changes no VM, existing or new.
+The golden DataVolume <code>openshell-gateway-golden</code> imports the <code>latest</code> tag only when it doesn&#8217;t exist yet, and each VM clones its root disk only once, when its <code>&lt;name&gt;-root</code> DataVolume is created.
+New VMs keep cloning the old golden disk too, because the <code>openshell-gateway</code> DataSource they clone from points at the <code>openshell-gateway-golden</code> PVC.
+To replace the golden disk, this step deletes three resources: the golden DataVolume <code>openshell-gateway-golden</code>, its PVC, and the <code>openshell-gateway</code> DataSource.
+<code>make build-gateway-podman</code> deletes the same three before a build, and also the earlier builds and the <code>openshell-gateway</code> ImageStream, which this step keeps.</p>
+</div>
+<div class="admonitionblock caution">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-caution" title="Caution"></i>
+</td>
+<td class="content">
+Run this step only while no VM is being created.
+A root-disk clone that is still running can keep the old PVC in <code>Terminating</code>.
+That VM then still gets the old image, and the next golden DataVolume, which has the same name, can stall until the old PVC is gone.
+Before you start, confirm with <code>oc get datavolumes -A</code> that every <code>&lt;name&gt;-root</code> DataVolume reports <code>Succeeded</code>.
+The deletion also leaves no golden disk until the next VM creation has imported the image again, and every VM created until the import finishes waits for it.
+Existing VMs keep their root disks and stay on the old image.
+</td>
+</tr>
+</table>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">oc delete datavolume openshell-gateway-golden -n openshell-agents
+oc delete pvc openshell-gateway-golden -n openshell-agents --ignore-not-found
+oc delete datasource openshell-gateway -n openshell-agents</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The PVC belongs to the DataVolume and usually goes away with it, so <code>--ignore-not-found</code> keeps the second command from failing.
+The prepare Job of the next VM that SAW creates finds no golden DataVolume.
+It imports the <code>latest</code> tag again, recreates the DataSource, and then lets the VM clone its root disk from the new golden disk.</p>
+</div>
+<div class="paragraph">
+<p>Check: <code>oc get datavolume openshell-gateway-golden -n openshell-agents</code> reports <code>Succeeded</code> after the next VM creation.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="sect2">
+<h3 id="build-the-golden-image-from-your-checkout"><a class="anchor" href="#build-the-golden-image-from-your-checkout"></a>Build the golden image from your checkout</h3>
+<div class="paragraph">
+<p>Instead of mirroring, <code>make build-gateway-podman</code> builds the golden image from your SAW checkout in the cluster, so the image contains <code>verify-bundle</code> and cosign.
+That gets you the verifier, not a verified bundle.
+At this baseline the chart ships no signed <code>bundle.sigstore.json</code>, so the installer still records the bundle as <code>unsigned</code>.
+A signed bundle alone wouldn&#8217;t verify either, because the build adds no public key to <code>/etc/saw/trust</code>, and without a key the verifier records the bundle as <code>failed</code>.
+The note at the copy-images step of <a href="install-manual.html" class="xref page">Install manually</a> describes what bundle verification also needs.</p>
+</div>
+<div class="admonitionblock caution">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-caution" title="Caution"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>The target first deletes the golden DataVolume <code>openshell-gateway-golden</code>, its PVC, the <code>openshell-gateway</code> DataSource, the earlier builds of the image, and the <code>openshell-gateway</code> ImageStream.
+It then recreates the ImageStream, the DataVolume, and the DataSource from the new build.
+The new ImageStream holds only the <code>latest</code> tag of the build, so the <code>OPENSHELL_VERSION</code> tag that <code>make copy-images</code> stored is gone.
+Existing VMs keep their root disks, and VMs created afterwards clone the new golden disk.
+After the build, the target pushes the image to <code>QUAY_REPO</code> as <code>latest</code> and as the <code>OPENSHELL_VERSION</code> tag.
+The default <code>QUAY_REPO</code> is <code>quay.io/rh-ai-quickstart</code>.
+Without push rights to that organization, the push fails after the build, and with them it replaces the published <code>latest</code> image.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Log in to a registry where you can push images, then run the build with <code>QUAY_REPO</code> set to your organization there:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">podman login quay.io
+make build-gateway-podman QUAY_REPO=quay.io/&lt;your-org&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Check: <code>oc get datavolume openshell-gateway-golden -n openshell-agents</code> reports <code>Succeeded</code> once the new image is imported.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="openshell-upgrade"><a class="anchor" href="#openshell-upgrade"></a>Upgrade OpenShell</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Everything that talks to a gateway must come from the same OpenShell release series: the BOM each VM installs, the shared governance interceptor, and every user&#8217;s CLI.
+SAW is stricter: all four BOM components and the interceptor must come from one exact release.
+An upgrade therefore moves all three together.
+A move to a new release series also recreates the gateway state on every VM, so plan it as a maintenance window.</p>
+</div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+<div class="title">A new release series recreates every sandbox</div>
+<div class="paragraph">
+<p>The installer compares the old and new gateway versions on major.minor, so going from 0.0.x to 0.1.x counts as a move to a new release series.
+On that move, each VM stops the gateway, removes every OpenShell sandbox container, and moves the gateway database aside to <code>gateway.&lt;old version&gt;.&lt;epoch&gt;</code>.
+The <code>apply</code> step then recreates workspaces, providers, and sandboxes from the SAW-BOM.
+Sandboxes and providers that users created themselves don&#8217;t come back, because they live in the moved database and <code>apply</code> recreates only the objects in the user&#8217;s BOM profiles.
+Workspace memberships that you added by hand with <code>openshell workspace member add</code> don&#8217;t carry over, because they live in the moved database and the installer adds back only the <code>ownerSubject</code> membership (see <a href="onboard-users.html#when-to-set-ownersubject" class="xref page">When to set ownerSubject</a>).
+The gateway&#8217;s TLS material is kept.</p>
+</div>
+<div class="paragraph">
+<p>Data in <code>/sandbox</code> doesn&#8217;t carry over.
+Each sandbox&#8217;s <code>/sandbox</code> is the Podman volume <code>openshell-sandbox-&lt;sandbox-id&gt;-workspace</code>, and the recreated sandboxes get new IDs and new, empty volumes.
+The installer keeps the old volumes and lists them in the installer log, so you can copy data over by hand.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Update the <code>bom:</code> block in the chart values (<code>charts/openshell-saw/values.yaml</code>) to the new release.
+Take all four components (<code>cli</code>, <code>gateway</code>, <code>supervisor</code>, and the <code>sandbox</code> runtime image) from the same release, and pin each image by digest.
+The installer refuses a BOM whose components carry different versions.</p>
+</li>
+<li>
+<p>Build or pick the governance interceptor image for the same tag.
+Set <code>source.git.ref</code> in <code>image-builder-charts/helm/governance-interceptor-image/values.yaml</code> to the new OpenShell tag.
+On a push to <code>main</code>, a GitHub workflow builds the interceptor from that tag and publishes it as <code>ghcr.io/&lt;owner&gt;/governance-interceptor:&lt;tag&gt;</code>.
+To build it into the cluster&#8217;s internal registry instead, run <code>make build-governance-interceptor-local OPENSHELL_INTERCEPTOR_REF=&lt;tag&gt;</code>.
+Then set <code>image</code> in <code>charts/governance-interceptor/values.yaml</code> to the new image.</p>
+<div class="paragraph">
+<p>A gateway that fails <a href="../governance.html#interceptor-versions" class="xref page">the version check</a> doesn&#8217;t start.
+On the move from 0.0.x, the check fails whenever the gateway and the interceptor come from different series, so update the interceptor and restart every VM in the same window.</p>
+</div>
+</li>
+<li>
+<p>Sync the charts and restart the VMs as in <a href="#change-a-users-bom">Change a user&#8217;s BOM</a>.
+On the first boot with the new BOM, the installer log reports the release-series move and lists the kept <code>/sandbox</code> volumes.</p>
+</li>
+<li>
+<p>Tell users to install the CLI from the new release before they use the gateway again (see <a href="../user/connect.html#install-the-openshell-cli" class="xref page">Install the OpenShell CLI</a>).
+OpenShell does not support a 0.0.x CLI with a 0.1.x gateway.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>Check: The installer logs (serial console or <code>make openshell-saw-logs</code>) show the new component versions being installed, and <code>openshell status</code> from a user&#8217;s CLI reports the new gateway version.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="remove-a-user"><a class="anchor" href="#remove-a-user"></a>Remove a user</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>To remove a user, delete their entry from <code>overrides/saw-users.yaml</code> and sync.
+The <code>pruneOnRemove</code> flag in <code>charts/saw-users/values.yaml</code> controls whether the VM is also deleted:</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1"><code>pruneOnRemove: false</code> (default)</dt>
+<dd>
+<p>Argo CD deletes the user&#8217;s Applications but leaves the namespace and VM in place.
+The namespace is marked <code>Prune=false</code> so the parent app does not delete it.</p>
+</dd>
+<dt class="hdlist1"><code>pruneOnRemove: true</code></dt>
+<dd>
+<p>The Applications get a foreground finalizer and the <code>openshell-saw</code> chart keeps its pre-delete hook, so Argo CD deletes the VM and the namespace follows.</p>
+</dd>
+</dl>
+</div>
+<div class="paragraph">
+<p>You can set <code>pruneOnRemove</code> on a single user entry in <code>overrides/saw-users.yaml</code> before removing them, instead of changing the global default.</p>
+</div>
+<div class="paragraph">
+<p>For the quickstart path, delete a single user&#8217;s resources directly:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">make openshell-saw-delete OPENSHELL_SAW_NAME=&lt;name&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This runs <code>helm uninstall</code> in the user&#8217;s namespace and deletes the namespace if it carries the <code>openshell.pattern/saw=true</code> label.</p>
+</div>
+<div class="paragraph">
+<p>Check: <code>oc get ns saw-&lt;name&gt;</code> returns "not found" after the namespace is cleaned up.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="uninstall"><a class="anchor" href="#uninstall"></a>Uninstall</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Three levels of cleanup are available, from targeted to complete.</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">Delete a single user&#8217;s VM and namespace</dt>
+<dd>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">make openshell-saw-delete OPENSHELL_SAW_NAME=&lt;name&gt;</code></pre>
+</div>
+</div>
+</dd>
+<dt class="hdlist1">Delete shared infrastructure (Keycloak, image streams, golden image) without touching the pattern</dt>
+<dd>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">make delete-all</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Sandbox releases must still be uninstalled individually.</p>
+</div>
+</dd>
+<dt class="hdlist1">Full pattern uninstall</dt>
+<dd>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">make uninstall</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This deletes all VMs and DataVolumes, removes the HyperConverged CR, removes the Argo CD Applications through the validated patterns framework, and cleans up OLM state for OpenShift Virtualization.</p>
+</div>
+</dd>
+</dl>
+</div>
+<div class="paragraph">
+<p>Check: <code>oc get patterns secure-agent-workspace -n patterns-operator</code> returns "not found" after a full uninstall.</p>
+</div>
+</div>
+</div>
+<nav class="pagination">
+  <span class="prev"><a href="onboard-users.html" class="query-params-link">Onboard users</a></span>
+  <span class="next"><a href="test-troubleshoot.html" class="query-params-link">Test and troubleshoot</a></span>
+</nav>
+</article>
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>  </div>
+</main>
+</div>
+<footer class="footer">
+  <a href="https://demo.redhat.com" target="_blank" class="poweredBy"><p>Powered by</p><div class="labInfo_poweredBy" style="display: block; width: 260px;"><svg class="labInfo_poweredByLogo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1508.5 178.739"><g fill="#111"><path d="M316.6 63.2v-56H342a21.279 21.279 0 0 1 7.8 1.3 18.111 18.111 0 0 1 5.9 3.5 15.577 15.577 0 0 1 5 11.8 15.051 15.051 0 0 1-3.1 9.5 16.836 16.836 0 0 1-8.4 5.8l12.5 24.1h-9.3l-11.6-23H325v23Zm24.7-48.6H325v18.7h16.3q5.25 0 8.1-2.7a8.7 8.7 0 0 0 2.8-6.6 8.7 8.7 0 0 0-2.8-6.6c-1.8-1.9-4.5-2.8-8.1-2.8ZM364.1 42.8a20.674 20.674 0 0 1 1.6-8.2 20.288 20.288 0 0 1 4.3-6.7 19.92 19.92 0 0 1 6.5-4.5 19.718 19.718 0 0 1 8-1.6 18.463 18.463 0 0 1 7.8 1.6 18.677 18.677 0 0 1 6.2 4.5 20.927 20.927 0 0 1 4.1 6.8 23.2 23.2 0 0 1 1.5 8.4v2.3H372a13.822 13.822 0 0 0 4.6 8.4 13.6 13.6 0 0 0 9.1 3.3 15.553 15.553 0 0 0 5.7-1 12.858 12.858 0 0 0 4.6-2.6l5.1 5a25.983 25.983 0 0 1-7.4 4.1 24.69 24.69 0 0 1-8.4 1.3 21.306 21.306 0 0 1-8.4-1.6 22.763 22.763 0 0 1-6.8-4.4 20.788 20.788 0 0 1-4.5-6.7 23.2 23.2 0 0 1-1.5-8.4Zm20.2-14.2a11.527 11.527 0 0 0-8 3 13.046 13.046 0 0 0-4.2 7.8h24.2a13.091 13.091 0 0 0-4.2-7.8 11.106 11.106 0 0 0-7.8-3ZM443.1 63.2v-3.8a19.448 19.448 0 0 1-5.8 3.3 18.924 18.924 0 0 1-6.7 1.2 19.824 19.824 0 0 1-14.6-6.1 22.268 22.268 0 0 1-4.4-6.7 21.812 21.812 0 0 1 0-16.4A20.534 20.534 0 0 1 416 28a19.335 19.335 0 0 1 6.6-4.5 20.334 20.334 0 0 1 8.2-1.6 20.7 20.7 0 0 1 6.6 1 19.415 19.415 0 0 1 5.7 3V7.2l8-1.8v57.8Zm-25.2-20.4a13.718 13.718 0 0 0 4 10.1 13.45 13.45 0 0 0 9.8 4.1 14.956 14.956 0 0 0 6.4-1.3 15.954 15.954 0 0 0 4.9-3.6V33.6a14.988 14.988 0 0 0-4.9-3.5 15.271 15.271 0 0 0-6.4-1.3 13.423 13.423 0 0 0-9.9 4 13.806 13.806 0 0 0-3.9 10ZM478.1 63.2v-56h8.4v24h29.8v-24h8.4v56h-8.4V38.8h-29.8v24.4ZM547.2 64a16.483 16.483 0 0 1-10.8-3.5 11.037 11.037 0 0 1-4.2-8.9 10.375 10.375 0 0 1 4.7-9.2 20.76 20.76 0 0 1 11.8-3.2 27.841 27.841 0 0 1 5.8.6 27.374 27.374 0 0 1 5.3 1.6v-4.3a8.143 8.143 0 0 0-2.6-6.5 11.452 11.452 0 0 0-7.4-2.2 20.788 20.788 0 0 0-6 .9 34.616 34.616 0 0 0-6.6 2.6l-3-6a54.169 54.169 0 0 1 8.4-3.1 33.18 33.18 0 0 1 8.3-1.1c5.2 0 9.3 1.3 12.2 3.8s4.4 6.1 4.4 10.8v27h-7.8v-3.5a19.441 19.441 0 0 1-5.8 3.2 23.54 23.54 0 0 1-6.7 1Zm-7.3-12.6a5.646 5.646 0 0 0 2.6 4.8 11.193 11.193 0 0 0 6.6 1.8 16.256 16.256 0 0 0 5.9-1 14.449 14.449 0 0 0 4.9-2.9V47a19.778 19.778 0 0 0-4.8-1.8 24.933 24.933 0 0 0-5.7-.6 11.859 11.859 0 0 0-6.8 1.8 5.728 5.728 0 0 0-2.7 5ZM580.6 53.2v-24H572v-6.7h8.6V12.1l7.9-1.9v12.3h12v6.7h-12v22.1a5.94 5.94 0 0 0 1.4 4.4c.9.9 2.5 1.3 4.6 1.3a23.637 23.637 0 0 0 3-.2 10.857 10.857 0 0 0 2.8-.8v6.7a19.28 19.28 0 0 1-3.8.9 27.484 27.484 0 0 1-3.8.3c-3.9 0-7-.9-9-2.8-2-1.7-3.1-4.4-3.1-7.9Z"></path></g><path d="M127 90.2c12.5 0 30.6-2.6 30.6-17.5a12.678 12.678 0 0 0-.3-3.4L149.8 37c-1.7-7.1-3.2-10.3-15.7-16.6-9.7-5-30.8-13.1-37.1-13.1-5.8 0-7.5 7.5-14.4 7.5-6.7 0-11.6-5.6-17.9-5.6-6 0-9.9 4.1-12.9 12.5 0 0-8.4 23.7-9.5 27.2a4.216 4.216 0 0 0-.3 1.9c0 9.2 36.3 39.4 85 39.4Zm32.5-11.4c1.7 8.2 1.7 9.1 1.7 10.1 0 14-15.7 21.8-36.4 21.8-46.8 0-87.7-27.4-87.7-45.5a17.535 17.535 0 0 1 1.5-7.3C21.8 58.8 0 61.8 0 81c0 31.5 74.6 70.3 133.7 70.3 45.3 0 56.7-20.5 56.7-36.6-.1-12.8-11-27.3-30.9-35.9Z" fill="#e00"></path><path d="M159.5 78.8c1.7 8.2 1.7 9.1 1.7 10.1 0 14-15.7 21.8-36.4 21.8-46.8 0-87.7-27.4-87.7-45.5a17.535 17.535 0 0 1 1.5-7.3l3.7-9.1a4.877 4.877 0 0 0-.3 2c0 9.2 36.3 39.4 85 39.4 12.5 0 30.6-2.6 30.6-17.5a12.678 12.678 0 0 0-.3-3.4Z"></path><path d="M253.5 158.7a2.22 2.22 0 0 1-2.2-2.2V2.2a2.2 2.2 0 0 1 4.4 0v154.2a2.242 2.242 0 0 1-2.2 2.3Z" fill="#111"></path><text data-name="Demo Platform" transform="translate(1186 149)" fill="#111" font-size="82" font-family="'RedHatDisplay', 'Overpass', overpass, helvetica, arial, sans-serif" font-weight="700"><tspan x="-877.892" y="0">Demo Platform</tspan></text></svg></div></div>
+</footer>
+<script defer src="../../_/js/vendor/clipboard.js"></script>
+<script defer src="../../_/js/site.js"></script>
+<script defer src="../../_/js/vendor/highlight.js"></script>
+<script async src="../../_/js/vendor/tabs.js"></script>
+  </body>
+</html>

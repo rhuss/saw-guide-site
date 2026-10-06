@@ -1,0 +1,741 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Onboard users :: Secure Agent Workspace Guide</title>
+    <link rel="prev" href="install-manual.html">
+    <link rel="next" href="day2.html">
+    <meta name="description" content="Create accounts and hand users their access data.">
+    <meta name="generator" content="Antora 3.1.15">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@400;500;700&family=Red+Hat+Mono:wght@400;700&family=Red+Hat+Text:wght@400;700&display=swap">
+    <link rel="stylesheet" href="../../_/css/site.css">
+<link rel="stylesheet" href="../../_/css/vendor/tabs.css">
+<link rel="icon" href="../../_/img/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="../../_/img/favicon.ico" type="image/x-icon">
+  </head>
+  <body class="article">
+<a class="skip-link" href="#content">Skip to content</a>
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <span class="navbar-item navbar-logo">
+        <img src="../../_/img/logo-demo-platform.svg" alt="Red Hat Demo Platform" class="navbar-logo-img">
+      </span>
+      <a class="navbar-item site-title" target="_blank" href="../..">Secure Agent Workspace Guide</a>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="saw-guide" data-version="">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="../index.html" class=" query-params-link">Secure Agent Workspace</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Concepts</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../index.html">What SAW is, and why</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../architecture.html">Architecture</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../governance.html">How governance works</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../benefits-challenges.html">Benefits and challenges</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Admin guide</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="prerequisites.html">Prerequisites and sizing</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="install-gitops.html">Install with GitOps</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="install-manual.html">Install manually</a>
+  </li>
+  <li class="nav-item is-current-page" data-depth="1">
+    <a class="nav-link" href="onboard-users.html">Onboard users</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="day2.html">Day 2 operations</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="test-troubleshoot.html">Test and troubleshoot</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">User guide</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../user/access.html">What your admin hands you</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../user/connect.html">Log in and connect</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../user/sandboxes.html">Work with sandboxes</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../user/what-you-can-change.html">What you can and cannot change</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Reference</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../reference/charts.html">Chart values</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../reference/bom.html">BOM and profiles</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../reference/make-targets.html">Make targets</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../reference/ports-namespaces.html">Ports, Routes, and namespaces</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Experimental</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../experimental.html">Experimental and upcoming features</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+  </div>
+  <ul class="components">
+    <li class="component is-current">
+      <span class="title">Secure Agent Workspace</span>
+      <ul class="versions">
+        <li class="version is-current">
+          <a href="../index.html">default</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>    </div>
+  </aside>
+</div>
+<main class="article" id="content">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../index.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../index.html">Secure Agent Workspace</a></li>
+    <li>Admin guide</li>
+    <li><a href="onboard-users.html">Onboard users</a></li>
+  </ul>
+</nav>
+</div>
+  <div class="content">
+<article class="doc">
+<h1 class="page">Onboard users</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>Once the platform is installed, the next step is to add users.
+This page walks you through creating a Keycloak account, adding the user to the SAW configuration, choosing a BOM profile, and collecting the items you hand over so the user can connect.</p>
+</div>
+<div class="imageblock expand">
+<div class="content">
+<img src="../_images/03-personas-access.svg" alt="Personas and access flow diagram showing admin steps on the left and user steps on the right">
+</div>
+<div class="title">Figure 1. The onboarding workflow from the SAW admin&#8217;s perspective (left) to what the SAW user receives (right).</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="naming-rules"><a class="anchor" href="#naming-rules"></a>Naming rules</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Every user name must follow three rules, enforced by the <code>saw-users</code> chart at render time:</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">Lowercase DNS label</dt>
+<dd>
+<p>Only lowercase letters, digits, and hyphens.
+The name must start and end with a letter or digit.</p>
+</dd>
+<dt class="hdlist1">At most 19 characters</dt>
+<dd>
+<p>OpenShell limits VM names to 19 characters.
+The chart rejects anything longer.</p>
+</dd>
+<dt class="hdlist1">Unique</dt>
+<dd>
+<p>No two users may share the same name.
+The chart fails the Helm render if it finds a duplicate.</p>
+</dd>
+</dl>
+</div>
+<div class="paragraph">
+<p>The name becomes the VirtualMachine name, the Namespace name (<code>saw-&lt;name&gt;</code>), and part of every Route hostname.
+Pick something short and recognizable.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="create-a-keycloak-user"><a class="anchor" href="#create-a-keycloak-user"></a>Create a Keycloak user</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Before you add a user to the SAW configuration, create a Keycloak account for them in the <code>openshell</code> realm.
+You can do this through the Keycloak admin console or through the Keycloak Admin API.</p>
+</div>
+<div class="paragraph">
+<p>Assign the user the <code>openshell-user</code> realm role.
+This role grants access to the OpenShell gateway, but only within workspaces where the user has membership.</p>
+</div>
+<div class="paragraph">
+<p>Grant the <code>openshell-admin</code> role only if the user needs to administer the gateway itself (for example, creating workspaces or managing other users outside the managed SAW lifecycle).
+Most users should stay with <code>openshell-user</code>.</p>
+</div>
+<div class="paragraph">
+<p>Note the new user&#8217;s ID.
+OpenShell identifies a user by the <code>sub</code> claim of their token, which <code>openshell whoami</code> prints as the subject.
+Keycloak sets <code>sub</code> to the user&#8217;s ID unless a protocol mapper overrides it, and the <code>openshell</code> realm that SAW imports has no such mapper.
+The admin console shows the ID on the user&#8217;s <strong>Details</strong> tab, and the Admin API returns it as the user&#8217;s <code>id</code>.
+You can therefore read the subject as soon as the account exists and use it as <code>ownerSubject</code> (see <a href="#when-to-set-ownersubject">When to set ownerSubject</a>).</p>
+</div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+<div class="title">Remove or change the default test users before onboarding real people</div>
+<div class="paragraph">
+<p>The <code>openshell-keycloak</code> chart ships with test defaults that are not safe for production.</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">Test users with passwords equal to their names</dt>
+<dd>
+<p>The <code>testUsers</code> list in <code>charts/openshell-keycloak/values.yaml</code> creates four users: <code>developer</code>/<code>developer</code>, <code>admin</code>/<code>admin</code>, <code>alice</code>/<code>alice</code>, and <code>bob</code>/<code>bob</code>.
+Remove these test users or change their passwords through the Keycloak admin console before you expose the cluster.</p>
+</dd>
+<dt class="hdlist1">Self-registration enabled</dt>
+<dd>
+<p><code>registrationAllowed: true</code> lets anyone with access to the Keycloak login page create their own account.
+Set <code>keycloak.registrationAllowed</code> to <code>false</code> in <code>charts/openshell-keycloak/values.yaml</code> before you expose the cluster.</p>
+</dd>
+</dl>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="store-per-user-secrets-in-vault"><a class="anchor" href="#store-per-user-secrets-in-vault"></a>Store per-user secrets in Vault</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>By default every user&#8217;s workspace reads secrets from the shared hub prefix (<code>secret/data/hub</code>).
+If a user needs their own inference key or a different model, create a per-user Vault prefix.</p>
+</div>
+<div class="paragraph">
+<p>Edit <code>~/values-secret.yaml</code> and add a <code>vaultPrefixes</code> entry under the <code>inference</code> group.
+The path is relative to <code>secret/data</code>, for example <code>hub/saw-jane</code>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-yaml hljs" data-lang="yaml">  - name: inference
+    vaultPrefixes:
+      - hub/saw-jane
+    fields:
+    - name: provider
+      value: build
+    - name: model
+      value: nvidia/nemotron-3-super-120b-a12b
+    - name: api_key
+      path: ~/.nvidia-api-key-jane</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Then set that user&#8217;s <code>vaultPrefix</code> in the user list (next step) to <code>secret/data/hub/saw-jane</code>.
+The saw-users chart doesn&#8217;t create Vault entries on its own.
+You load them through the validated patterns secret mechanism or with the <code>vault</code> CLI.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="add-the-user-and-choose-profiles"><a class="anchor" href="#add-the-user-and-choose-profiles"></a>Add the user and choose profiles</h2>
+<div class="sectionbody">
+<div id="tabs-1" class="openblock tabs is-loading">
+<div class="content">
+<div class="ulist tablist">
+<ul>
+<li id="tabs-1-gitops" class="tab">
+<p>GitOps</p>
+</li>
+<li id="tabs-1-manual" class="tab">
+<p>Manual</p>
+</li>
+</ul>
+</div>
+<div id="tabs-1-gitops--panel" class="tabpanel" aria-labelledby="tabs-1-gitops">
+<div class="paragraph">
+<p>Edit <code>overrides/saw-users.yaml</code> and add an entry for each new user.
+Every entry needs a <code>name</code> and a list of <code>profiles</code>.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-yaml hljs" data-lang="yaml"># https://github.com/validatedpatterns-sandbox/secure-agent-workspace/blob/4768f02d4415449de74403df62bad0c03630448e/overrides/saw-users.yaml
+users:
+  - name: jane                  <i class="conum" data-value="1"></i><b>(1)</b>
+    profiles:                   <i class="conum" data-value="2"></i><b>(2)</b>
+      - data-science
+    ownerSubject: "&lt;keycloak-user-id&gt;"                    <i class="conum" data-value="3"></i><b>(3)</b>
+    vaultPrefix: secret/data/hub/saw-jane                 <i class="conum" data-value="4"></i><b>(4)</b>
+  - name: dev-team-gpu          <i class="conum" data-value="5"></i><b>(5)</b>
+    profiles:
+      - data-science
+      - custom-inference</code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>Lowercase DNS label, at most 19 characters.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>One or more BOM profile names.
+The default is <code>data-science</code>.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="3"></i><b>3</b></td>
+<td>The user&#8217;s subject, which is their Keycloak user ID (see <a href="#create-a-keycloak-user">Create a Keycloak user</a>).
+Without a workspace membership, the user can&#8217;t work on their gateway (see <a href="#when-to-set-ownersubject">When to set ownerSubject</a>).
+When set, the installer calls <code>openshell workspace member add --subject &lt;ownerSubject&gt; --role admin</code> for each workspace, making that user a workspace admin.
+Copy the ID from Keycloak when you create the account and set it in the same commit as the new entry.
+If you don&#8217;t have the ID yet, add it later as described in <a href="#set-owner-subject">Set ownerSubject for an existing user</a>.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="4"></i><b>4</b></td>
+<td>Optional per-user Vault prefix.
+Without it, the user reads the shared <code>secret/data/hub</code> prefix.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="5"></i><b>5</b></td>
+<td>A second user without <code>ownerSubject</code> or a custom <code>vaultPrefix</code>.
+This user gets the chart defaults and no workspace membership until you add one.
+<div class="paragraph">
+<p>Commit and push your changes.
+Argo CD picks up the new entries, creates one Namespace (<code>saw-&lt;name&gt;</code>) and three Application objects per user (<code>saw-&lt;name&gt;-secrets</code>, <code>saw-&lt;name&gt;-bom</code>, <code>saw-&lt;name&gt;</code>), and the VM boots.</p>
+</div>
+<div class="paragraph">
+<p>Check: Confirm the new user&#8217;s VirtualMachine exists.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">oc get vm -A -l openshell.pattern/owner</code></pre>
+</div>
+</div></td>
+</tr>
+</table>
+</div>
+</div>
+<div id="tabs-1-manual--panel" class="tabpanel" aria-labelledby="tabs-1-manual">
+<div class="paragraph">
+<p>Run <code>make openshell-saw-create</code> for each new user.
+The target creates the Namespace, deploys the SAW-BOM profiles, creates provider credential Secrets, and deploys the VM.</p>
+</div>
+<div class="paragraph">
+<p>When you onboard someone else, set <code>OWNER</code> to the user&#8217;s name and <code>OWNER_SUBJECT</code> to their Keycloak user ID (see <a href="#create-a-keycloak-user">Create a Keycloak user</a>).
+The installer then makes that subject an admin of the user&#8217;s workspaces.
+<code>OWNER</code> without <code>OWNER_SUBJECT</code> sets the owner name but no subject, so the installer adds no workspace member.
+With <code>OWNER</code> set, the target doesn&#8217;t prompt, so the command also runs from a script.
+The command reads the provider keys from files, as described in the "Create the user VM" step of <a href="install-manual.html" class="xref page">Install manually</a>.
+The default <code>data-science</code> profile also needs the Brave Search key in <code>WEB_SEARCH_API_KEY</code>.
+Before you run the target, export <code>KEYCLOAK_NS</code> as in step 3 of <a href="install-manual.html" class="xref page">Install manually</a>, because the target looks up the OIDC issuer in that namespace.
+When <code>KEYCLOAK_NS</code> doesn&#8217;t name the namespace of your Keycloak, the target finds no issuer and deploys the gateway without OIDC, and it reports no error.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">WEB_SEARCH_API_KEY="$(cat ~/.brave-api-key)" \
+make openshell-saw-create \
+  OPENSHELL_SAW_NAME=jane \
+  OWNER=jane \
+  OWNER_SUBJECT=&lt;keycloak-user-id&gt; \
+  PROVIDER=build \
+  MODEL=nvidia/nemotron-3-super-120b-a12b \
+  API_KEY="$(cat ~/.nvidia-api-key)"</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Without <code>OWNER</code>, the target reads your own identity from the token that <code>make login</code> saved and asks who owns the VM:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>Press Enter to set owner to '&lt;you&gt;', or type a different owner:</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>In that case the target takes the subject from your own token and ignores <code>OWNER_SUBJECT</code>, even when you type a different owner name.
+The installer then makes you, not the user, the workspace admin, so leave <code>OWNER</code> unset only for a VM that you work in yourself.</p>
+</div>
+<div class="paragraph">
+<p>Check: Confirm the VirtualMachine exists and is running.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">oc get vm -n saw-jane</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="understand-bom-profiles"><a class="anchor" href="#understand-bom-profiles"></a>Understand BOM profiles</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Each profile bundles workspaces, providers, and sandboxes into a ready-to-apply configuration.
+The SAW repository ships two profiles:</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1"><code>data-science</code> (default)</dt>
+<dd>
+<p>Two workspaces (<code>default</code> and <code>cuda-dev</code>), an NVIDIA Build provider, a Brave Search provider, and five sandbox definitions across both workspaces (two enabled by default).
+The Brave Search provider exists in the <code>default</code> workspace, but no sandbox in the profile attaches it.
+Every sandbox lists only the NVIDIA provider, so the agents in the default sandboxes have no web search.</p>
+</dd>
+<dt class="hdlist1"><code>custom-inference</code></dt>
+<dd>
+<p>One workspace with an OpenAI-compatible provider that reads its base URL, model, and key from the <code>inference</code> Secret.
+Use this profile when you run a self-hosted model server (for example vLLM or Ollama).</p>
+</dd>
+</dl>
+</div>
+<div class="paragraph">
+<p>Profiles live under <code>charts/saw-bom/profiles/&lt;profile-name&gt;/&lt;workspace-name&gt;/</code>.
+Each workspace directory contains three files: <code>workspace.yaml</code>, <code>providers.yaml</code>, and <code>sandbox.yaml</code>.</p>
+</div>
+<div class="paragraph">
+<p>The <code>sandbox.yaml</code> from the <code>data-science</code> profile shows how sandbox entries are structured:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-yaml hljs" data-lang="yaml"># Excerpt from https://github.com/validatedpatterns-sandbox/secure-agent-workspace/blob/4768f02d4415449de74403df62bad0c03630448e/charts/saw-bom/profiles/data-science/default/sandbox.yaml
+apiVersion: saw.redhat.com/v1alpha1
+kind: Sandboxes
+metadata: {}
+spec:
+  sandboxes:
+    - name: notebook             <i class="conum" data-value="1"></i><b>(1)</b>
+      type: openclaw             <i class="conum" data-value="2"></i><b>(2)</b>
+      enabled: true              <i class="conum" data-value="3"></i><b>(3)</b>
+      image: quay.io/rh-ai-quickstart/openclaw-openshell:latest <i class="conum" data-value="4"></i><b>(4)</b>
+      providers:                 <i class="conum" data-value="5"></i><b>(5)</b>
+        - nvidia
+    - name: cuda-sandbox
+      type: nemoclaw
+      enabled: false
+      agent: openclaw
+      image: quay.io/rh-ai-quickstart/nemoclaw-sandbox:latest
+      providers:
+        - nvidia</code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>Sandbox name, also a DNS label, at most 19 characters.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>Sandbox type: <code>openclaw</code>, <code>nemoclaw</code>, or <code>generic</code>.
+The type determines which agent harness runs inside the sandbox.
+At this baseline a <code>nemoclaw</code> sandbox falls back to plain OpenClaw (see the note in <a href="../user/sandboxes.html#list-your-workspaces-and-sandboxes" class="xref page">Work with sandboxes</a>).</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="3"></i><b>3</b></td>
+<td>Set <code>enabled: false</code> to include the definition without creating the sandbox on boot.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="4"></i><b>4</b></td>
+<td>The container image pulled into the sandbox.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="5"></i><b>5</b></td>
+<td>Which providers this sandbox can reach.
+Each name must match a provider in <code>providers.yaml</code>.</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Every provider&#8217;s <code>type</code> field must match a governance profile ID.
+See <a href="../governance.html" class="xref page">How governance works</a> for the full list of allowed provider types and how the interceptor validates them.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="when-to-set-ownersubject"><a class="anchor" href="#when-to-set-ownersubject"></a>When to set ownerSubject</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>A user needs workspace membership to work on their gateway.
+In SAW, only the <code>ownerSubject</code> setting creates one.</p>
+</div>
+<div class="paragraph">
+<p>The subject is the Keycloak user ID, which you find on the user&#8217;s <strong>Details</strong> tab in the admin console (see <a href="#create-a-keycloak-user">Create a Keycloak user</a>).
+<code>openshell whoami</code> shows the same value under <code>Subject</code> once the user has logged in.</p>
+</div>
+<div class="paragraph">
+<p>When you set <code>ownerSubject</code> to that ID, the in-VM installer calls <code>openshell workspace member add --subject &lt;ownerSubject&gt; --role admin</code> for each workspace in the user&#8217;s BOM profiles.
+This makes the user a workspace admin.
+They can list, connect to, and create sandboxes, and they can create providers whose type matches a governance profile.
+The installer adds the membership each time it applies the BOM, so it comes back after a release-series upgrade recreates the gateway state.</p>
+</div>
+<div class="paragraph">
+<p>Without <code>ownerSubject</code>, the user&#8217;s workspaces have no members, because neither the gateway nor the installer adds users on its own.
+The user can log in and run <code>openshell whoami</code>, but the gateway rejects their sandbox and provider requests.
+They can&#8217;t list, connect to, or create sandboxes from the CLI.
+They also can&#8217;t read the OpenClaw UI token, because reading it takes <code>openshell sandbox exec</code>.</p>
+</div>
+<div class="paragraph">
+<p>Set <code>ownerSubject</code> for every user who works in their own VM.
+Because the subject is the user ID, you can set it when you add the user, before their first login, and the user can work as soon as the installer finishes.
+For a VM that already runs without it, see <a href="#set-owner-subject">Set ownerSubject for an existing user</a>.
+If you want a user to run sandboxes without managing providers, leave <code>ownerSubject</code> empty and add a <code>user</code> membership yourself.
+Register the user&#8217;s gateway with <code>make openshell-saw-configure-gateway OPENSHELL_SAW_NAME=&lt;name&gt;</code> and sign in with an account that has the <code>openshell-admin</code> role.
+Then run this command once for each workspace in the user&#8217;s profiles, replacing <code>&lt;workspace&gt;</code> with the workspace name.
+The default <code>data-science</code> profile has two workspaces, <code>default</code> and <code>cuda-dev</code>.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">openshell workspace member add --workspace &lt;workspace&gt; --subject &lt;subject&gt; --role user</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Check: List the members of each workspace and confirm that the user&#8217;s subject appears with the role <code>user</code>.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">openshell workspace member list --workspace &lt;workspace&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>A workspace user can create, use, and delete sandboxes and use the providers you configured, but can&#8217;t create or change providers.
+Only an account with the <code>openshell-admin</code> role can assign the workspace <code>admin</code> role.
+The installer doesn&#8217;t restore memberships that you add by hand, so add them again after a release-series upgrade.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="hand-over"><a class="anchor" href="#hand-over"></a>What to hand the user</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>After the VM is running and the installer finishes, collect these items and give them to the user.
+The first five items let the user connect with the OpenShell CLI.
+The last two cover the web UIs.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 40%;">
+<col style="width: 40%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Item</th>
+<th class="tableblock halign-left valign-top">What it is</th>
+<th class="tableblock halign-left valign-top">How the admin obtains it</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Keycloak username and password</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The credentials you created in the Keycloak admin console.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">You set these when creating the user account.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">OIDC issuer URL</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The Keycloak realm URL, format <code>https://&lt;keycloak-host&gt;/realms/openshell</code>.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Run <code>make keycloak-issuer KEYCLOAK_NS=&lt;keycloak-namespace&gt;</code>.
+<code>KEYCLOAK_NS</code> names the namespace of your Keycloak and defaults to <code>saw-keycloak</code>.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">OIDC client ID</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Defaults to <code>openshell-cli</code>.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A known constant. Provide it as-is unless you changed the client ID.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Gateway route URL</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The HTTPS URL of the user&#8217;s gateway Route.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>oc get route &lt;name&gt;-gateway -n saw-&lt;name&gt; -o jsonpath='https://{.spec.host}'</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Gateway CA certificate</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The self-signed CA the gateway uses for mTLS. The user&#8217;s CLI needs it to verify the gateway&#8217;s TLS certificate.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Extracted from the sandbox VM over SSH.
+Run <code>make openshell-saw-configure-gateway OPENSHELL_SAW_NAME=&lt;name&gt;</code> (which calls <code>scripts/extract-gateway-ca.sh</code> internally) and copy the resulting <code>ca.crt</code> file from <code>~/.config/openshell/gateways/&lt;name&gt;/mtls/ca.crt</code>.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">OpenClaw UI access</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">How the user opens the OpenClaw web UI in their sandboxes.
+SAW creates a Route named <code>dashboard</code> for this UI, which targets port 18789 of the user&#8217;s VM.
+At this baseline OpenClaw listens inside the sandbox container, which has no network of its own, so the Route does not reach the OpenClaw UI.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Don&#8217;t hand over the Route URL.
+Point the user to <a href="../user/sandboxes.html#open-the-openclaw-web-ui" class="xref page">Open the OpenClaw web UI</a>, which opens the UI through a port forward.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">OpenShell Dashboard URL</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The HTTPS URL of the Route named <code>webui</code>, which leads to the OpenShell Dashboard through oauth2-proxy and a Keycloak login.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>oc get route &lt;name&gt;-webui -n saw-&lt;name&gt; -o jsonpath='https://{.spec.host}'</code></p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>Check: Verify that the gateway responds before handing over the URL.
+The <code>make openshell-saw-configure-gateway</code> run from the CA certificate row has registered the gateway in your own CLI and signed you in through the browser.
+If you have not run it yet, run it first.
+Then query the gateway&#8217;s status:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">openshell --gateway &lt;name&gt; status</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The output shows <code>Status: Connected</code>, the authentication state, and the gateway version.
+Don&#8217;t check with <code>curl</code> on <code>/health</code> through the gateway Route.
+The gateway serves its health endpoints only on a separate health listener, which is off by default, and not on the port behind the Route.</p>
+</div>
+<div class="paragraph">
+<p>The user guide (starting at <a href="../user/access.html" class="xref page">Access your workspace</a>) walks users through connecting with these items.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="set-owner-subject"><a class="anchor" href="#set-owner-subject"></a>Set ownerSubject for an existing user</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Use these steps when a user&#8217;s VM already runs without <code>ownerSubject</code>, for example because you didn&#8217;t have the user&#8217;s ID when you added them.
+Until you set it, their workspaces have no members, and the user can&#8217;t list, connect to, or create sandboxes.
+Read the ID from the user&#8217;s <strong>Details</strong> tab in the Keycloak admin console.
+Without access to the admin console, ask the user to log in and send you the <code>Subject</code> that <code>openshell whoami</code> shows.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Set the subject as the user&#8217;s <code>ownerSubject</code>.
+On the GitOps path, add it to the user&#8217;s entry in <code>overrides/saw-users.yaml</code>, then commit, push, and let Argo CD sync:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-yaml hljs" data-lang="yaml">users:
+  - name: jane
+    profiles:
+      - data-science
+    ownerSubject: "&lt;keycloak-user-id&gt;"</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>On the manual path, export <code>KEYCLOAK_NS</code> as in step 3 of <a href="install-manual.html" class="xref page">Install manually</a>, then run <code>make openshell-saw-create</code> again with the same variables as before, plus <code>OWNER=&lt;name&gt;</code> and <code>OWNER_SUBJECT=&lt;keycloak-user-id&gt;</code>.
+The target runs <code>helm upgrade --install</code>, so it updates the existing release.
+It replaces the release&#8217;s values with the ones from this run, so a run that finds no Keycloak in <code>KEYCLOAK_NS</code> turns the gateway into one without OIDC.</p>
+</div>
+</li>
+<li>
+<p>Restart the VM so that the installer reads the new value:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">make openshell-saw-restart OPENSHELL_SAW_NAME=&lt;name&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p><code>ownerSubject</code> is part of the installer ConfigMap.
+The change updates the VM&#8217;s installer inputs, but the running VM doesn&#8217;t pick them up until it restarts (see <a href="day2.html#change-a-users-bom" class="xref page">Change a user&#8217;s BOM</a>).
+With <code>vm.liveInputs</code> turned on, skip the restart, because <code>saw-reconcile</code> detects the changed ConfigMap and runs <code>install</code> and <code>apply</code>.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>Check: List the members of each workspace and confirm that the user&#8217;s subject appears with the role <code>admin</code>.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">openshell workspace member list --workspace &lt;workspace&gt;</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="self-service-onboarding"><a class="anchor" href="#self-service-onboarding"></a>Self-service onboarding</h2>
+<div class="sectionbody">
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="title">Experimental: in review</div>
+<div class="paragraph">
+<p>Self-service portal with Red Hat Developer Hub is not part of the baseline.
+It is proposed in <a href="https://github.com/validatedpatterns-sandbox/secure-agent-workspace/pull/57" target="_blank" rel="noopener">PR&#160;#57</a> (status as of 2026-10-02) and may change or be dropped before it merges.
+See <a href="../experimental.html#rhdh-portal" class="xref page">Experimental and upcoming features</a> for what it will change.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<nav class="pagination">
+  <span class="prev"><a href="install-manual.html" class="query-params-link">Install manually</a></span>
+  <span class="next"><a href="day2.html" class="query-params-link">Day 2 operations</a></span>
+</nav>
+</article>
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>  </div>
+</main>
+</div>
+<footer class="footer">
+  <a href="https://demo.redhat.com" target="_blank" class="poweredBy"><p>Powered by</p><div class="labInfo_poweredBy" style="display: block; width: 260px;"><svg class="labInfo_poweredByLogo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1508.5 178.739"><g fill="#111"><path d="M316.6 63.2v-56H342a21.279 21.279 0 0 1 7.8 1.3 18.111 18.111 0 0 1 5.9 3.5 15.577 15.577 0 0 1 5 11.8 15.051 15.051 0 0 1-3.1 9.5 16.836 16.836 0 0 1-8.4 5.8l12.5 24.1h-9.3l-11.6-23H325v23Zm24.7-48.6H325v18.7h16.3q5.25 0 8.1-2.7a8.7 8.7 0 0 0 2.8-6.6 8.7 8.7 0 0 0-2.8-6.6c-1.8-1.9-4.5-2.8-8.1-2.8ZM364.1 42.8a20.674 20.674 0 0 1 1.6-8.2 20.288 20.288 0 0 1 4.3-6.7 19.92 19.92 0 0 1 6.5-4.5 19.718 19.718 0 0 1 8-1.6 18.463 18.463 0 0 1 7.8 1.6 18.677 18.677 0 0 1 6.2 4.5 20.927 20.927 0 0 1 4.1 6.8 23.2 23.2 0 0 1 1.5 8.4v2.3H372a13.822 13.822 0 0 0 4.6 8.4 13.6 13.6 0 0 0 9.1 3.3 15.553 15.553 0 0 0 5.7-1 12.858 12.858 0 0 0 4.6-2.6l5.1 5a25.983 25.983 0 0 1-7.4 4.1 24.69 24.69 0 0 1-8.4 1.3 21.306 21.306 0 0 1-8.4-1.6 22.763 22.763 0 0 1-6.8-4.4 20.788 20.788 0 0 1-4.5-6.7 23.2 23.2 0 0 1-1.5-8.4Zm20.2-14.2a11.527 11.527 0 0 0-8 3 13.046 13.046 0 0 0-4.2 7.8h24.2a13.091 13.091 0 0 0-4.2-7.8 11.106 11.106 0 0 0-7.8-3ZM443.1 63.2v-3.8a19.448 19.448 0 0 1-5.8 3.3 18.924 18.924 0 0 1-6.7 1.2 19.824 19.824 0 0 1-14.6-6.1 22.268 22.268 0 0 1-4.4-6.7 21.812 21.812 0 0 1 0-16.4A20.534 20.534 0 0 1 416 28a19.335 19.335 0 0 1 6.6-4.5 20.334 20.334 0 0 1 8.2-1.6 20.7 20.7 0 0 1 6.6 1 19.415 19.415 0 0 1 5.7 3V7.2l8-1.8v57.8Zm-25.2-20.4a13.718 13.718 0 0 0 4 10.1 13.45 13.45 0 0 0 9.8 4.1 14.956 14.956 0 0 0 6.4-1.3 15.954 15.954 0 0 0 4.9-3.6V33.6a14.988 14.988 0 0 0-4.9-3.5 15.271 15.271 0 0 0-6.4-1.3 13.423 13.423 0 0 0-9.9 4 13.806 13.806 0 0 0-3.9 10ZM478.1 63.2v-56h8.4v24h29.8v-24h8.4v56h-8.4V38.8h-29.8v24.4ZM547.2 64a16.483 16.483 0 0 1-10.8-3.5 11.037 11.037 0 0 1-4.2-8.9 10.375 10.375 0 0 1 4.7-9.2 20.76 20.76 0 0 1 11.8-3.2 27.841 27.841 0 0 1 5.8.6 27.374 27.374 0 0 1 5.3 1.6v-4.3a8.143 8.143 0 0 0-2.6-6.5 11.452 11.452 0 0 0-7.4-2.2 20.788 20.788 0 0 0-6 .9 34.616 34.616 0 0 0-6.6 2.6l-3-6a54.169 54.169 0 0 1 8.4-3.1 33.18 33.18 0 0 1 8.3-1.1c5.2 0 9.3 1.3 12.2 3.8s4.4 6.1 4.4 10.8v27h-7.8v-3.5a19.441 19.441 0 0 1-5.8 3.2 23.54 23.54 0 0 1-6.7 1Zm-7.3-12.6a5.646 5.646 0 0 0 2.6 4.8 11.193 11.193 0 0 0 6.6 1.8 16.256 16.256 0 0 0 5.9-1 14.449 14.449 0 0 0 4.9-2.9V47a19.778 19.778 0 0 0-4.8-1.8 24.933 24.933 0 0 0-5.7-.6 11.859 11.859 0 0 0-6.8 1.8 5.728 5.728 0 0 0-2.7 5ZM580.6 53.2v-24H572v-6.7h8.6V12.1l7.9-1.9v12.3h12v6.7h-12v22.1a5.94 5.94 0 0 0 1.4 4.4c.9.9 2.5 1.3 4.6 1.3a23.637 23.637 0 0 0 3-.2 10.857 10.857 0 0 0 2.8-.8v6.7a19.28 19.28 0 0 1-3.8.9 27.484 27.484 0 0 1-3.8.3c-3.9 0-7-.9-9-2.8-2-1.7-3.1-4.4-3.1-7.9Z"></path></g><path d="M127 90.2c12.5 0 30.6-2.6 30.6-17.5a12.678 12.678 0 0 0-.3-3.4L149.8 37c-1.7-7.1-3.2-10.3-15.7-16.6-9.7-5-30.8-13.1-37.1-13.1-5.8 0-7.5 7.5-14.4 7.5-6.7 0-11.6-5.6-17.9-5.6-6 0-9.9 4.1-12.9 12.5 0 0-8.4 23.7-9.5 27.2a4.216 4.216 0 0 0-.3 1.9c0 9.2 36.3 39.4 85 39.4Zm32.5-11.4c1.7 8.2 1.7 9.1 1.7 10.1 0 14-15.7 21.8-36.4 21.8-46.8 0-87.7-27.4-87.7-45.5a17.535 17.535 0 0 1 1.5-7.3C21.8 58.8 0 61.8 0 81c0 31.5 74.6 70.3 133.7 70.3 45.3 0 56.7-20.5 56.7-36.6-.1-12.8-11-27.3-30.9-35.9Z" fill="#e00"></path><path d="M159.5 78.8c1.7 8.2 1.7 9.1 1.7 10.1 0 14-15.7 21.8-36.4 21.8-46.8 0-87.7-27.4-87.7-45.5a17.535 17.535 0 0 1 1.5-7.3l3.7-9.1a4.877 4.877 0 0 0-.3 2c0 9.2 36.3 39.4 85 39.4 12.5 0 30.6-2.6 30.6-17.5a12.678 12.678 0 0 0-.3-3.4Z"></path><path d="M253.5 158.7a2.22 2.22 0 0 1-2.2-2.2V2.2a2.2 2.2 0 0 1 4.4 0v154.2a2.242 2.242 0 0 1-2.2 2.3Z" fill="#111"></path><text data-name="Demo Platform" transform="translate(1186 149)" fill="#111" font-size="82" font-family="'RedHatDisplay', 'Overpass', overpass, helvetica, arial, sans-serif" font-weight="700"><tspan x="-877.892" y="0">Demo Platform</tspan></text></svg></div></div>
+</footer>
+<script defer src="../../_/js/vendor/clipboard.js"></script>
+<script defer src="../../_/js/site.js"></script>
+<script defer src="../../_/js/vendor/highlight.js"></script>
+<script async src="../../_/js/vendor/tabs.js"></script>
+  </body>
+</html>
